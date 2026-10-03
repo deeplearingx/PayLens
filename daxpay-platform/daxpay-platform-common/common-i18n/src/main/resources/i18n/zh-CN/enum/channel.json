@@ -30,5 +30,7 @@
   "allin_pay": "通联支付",
   "allin_pay_desc": "通联支付聚合通道(云商通/收银宝/收付通/金服宝四产品均可收单, 微信/支付宝/云闪付, 支持沙箱环境)",
   "shouqianba": "收钱吧",
-  "shouqianba_desc": "收钱吧聚合扫码通道(微信/支付宝/银联)"
+  "shouqianba_desc": "收钱吧聚合扫码通道(微信/支付宝/银联)",
+  "paylens_sim": "PayLens 模拟通道",
+  "paylens_sim_desc": "仅用于本地模拟支付状态，不连接真实支付机构"
 }

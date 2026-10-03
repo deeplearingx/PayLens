@@ -1,0 +1,241 @@
+{
+  "runId": "20260925-181500-253",
+  "startedAt": "2026-09-25T18:15:00.2745290+08:00",
+  "dockerContext": "desktop-linux",
+  "isolatedImages": [
+    "postgres:16-alpine",
+    "redis:7-alpine",
+    "apache/activemq-artemis:2.37.0-alpine"
+  ],
+  "roundsRequested": 20,
+  "roundsPassed": 20,
+  "confirmWins": 18,
+  "ignoreWins": 2,
+  "durationMs": 110578,
+  "status": "PASSED",
+  "rounds": [
+    {
+      "round": 1,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "ignore",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "ignored",
+      "elapsedMs": 4156,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-01"
+    },
+    {
+      "round": 2,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3295,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-02"
+    },
+    {
+      "round": 3,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3243,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-03"
+    },
+    {
+      "round": 4,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3249,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-04"
+    },
+    {
+      "round": 5,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3205,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-05"
+    },
+    {
+      "round": 6,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "ignore",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "ignored",
+      "elapsedMs": 3239,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-06"
+    },
+    {
+      "round": 7,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3189,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-07"
+    },
+    {
+      "round": 8,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3197,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-08"
+    },
+    {
+      "round": 9,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3188,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-09"
+    },
+    {
+      "round": 10,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3180,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-10"
+    },
+    {
+      "round": 11,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3214,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-11"
+    },
+    {
+      "round": 12,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3227,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-12"
+    },
+    {
+      "round": 13,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3170,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-13"
+    },
+    {
+      "round": 14,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3214,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-14"
+    },
+    {
+      "round": 15,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3196,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-15"
+    },
+    {
+      "round": 16,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3168,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-16"
+    },
+    {
+      "round": 17,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3211,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-17"
+    },
+    {
+      "round": 18,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3200,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-18"
+    },
+    {
+      "round": 19,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3165,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-19"
+    },
+    {
+      "round": 20,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "winner": "confirm",
+      "loserHttpStatus": 200,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "confirmed",
+      "elapsedMs": 3160,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-concurrency\\20260925-181500-253\\round-20"
+    }
+  ],
+  "failureStep": null,
+  "failureType": null,
+  "completedAt": "2026-09-25T18:16:50.8514955+08:00"
+}

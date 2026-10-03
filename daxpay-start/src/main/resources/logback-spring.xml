@@ -15,9 +15,9 @@
     <property name="FILE_PATTERN"
               value="%date{yyyy-MM-dd HH:mm:ss.SSS} | %-5level [%X{traceId:-},%X{spanId:-}] %thread - %logger{36} | %msg%n"/>
 
-    <!-- ===================== 开发环境(dev) ===================== -->
+    <!-- ===================== 开发环境(dev) 与 PayLens 本地演示环境 ===================== -->
     <!-- dev 以 IDE 控制台为主, 不落盘 file(避免历史脏日志残留, 减少磁盘干扰) -->
-    <springProfile name="dev">
+    <springProfile name="dev | paylens">
         <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
             <encoder>
                 <pattern>${CONSOLE_PATTERN}</pattern>

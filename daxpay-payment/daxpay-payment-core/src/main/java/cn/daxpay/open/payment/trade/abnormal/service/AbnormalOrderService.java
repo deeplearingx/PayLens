@@ -103,9 +103,21 @@ public class AbnormalOrderService {
         log.info("异常订单人工确认成功: tradeNo={}, handler={}", abnormal.getTradeNo(), handler);
     }
 
-    /// 忽略异常单(核实无需入账, 如通道侧已原路退回)
-    @Transactional(rollbackFor = Exception.class)
+    /// 忽略异常单(锁外层, 确保交易级互斥覆盖事务提交)
     public void ignore(Long id, String handler, String remark) {
+        AbnormalOrder boot = abnormalOrderManager.findById(id)
+                .orElseThrow(() -> new DataNotExistException("pay.error.abnormal.notFound"));
+        PayTrade trade = payTradeManager.findByTradeNoNotTenant(boot.getTradeNo())
+                .orElseThrow(() -> new DataNotExistException("pay.error.payOrderNotExist"));
+        lockExecutor.run(
+                TradeLockKeys.trade(trade.getId()),
+                () -> self.doIgnore(id, handler, remark),
+                () -> new BizInfoException(CommonErrorCode.VALIDATE_PARAMETERS_ERROR, "pay.error.pay.closeProcessing")
+        );
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void doIgnore(Long id, String handler, String remark) {
         AbnormalOrder abnormal = abnormalOrderManager.findById(id)
                 .orElseThrow(() -> new DataNotExistException("pay.error.abnormal.notFound"));
         this.assertPending(abnormal);
@@ -192,6 +204,17 @@ public class AbnormalOrderService {
         if (StrUtil.isNotBlank(remark)) {
             abnormal.setHandleRemark(StrUtil.maxLength(remark, 300));
         }
-        abnormalOrderManager.updateById(abnormal);
+        boolean updated = abnormalOrderManager.lambdaUpdate()
+                .eq(AbnormalOrder::getId, abnormal.getId())
+                .eq(AbnormalOrder::getHandleStatus, AbnormalHandleStatusEnum.PENDING.getCode())
+                .set(AbnormalOrder::getHandleStatus, status.getCode())
+                .set(AbnormalOrder::getHandleAction, action)
+                .set(AbnormalOrder::getHandler, handler)
+                .set(AbnormalOrder::getHandleTime, OffsetDateTime.now(ZoneOffset.UTC))
+                .set(StrUtil.isNotBlank(remark), AbnormalOrder::getHandleRemark, StrUtil.maxLength(remark, 300))
+                .update();
+        if (!updated) {
+            throw new BizInfoException(DaxPayErrorCode.TRADE_STATUS_ERROR, "pay.error.abnormal.alreadyHandled");
+        }
     }
 }

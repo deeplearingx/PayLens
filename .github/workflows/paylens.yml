@@ -1,0 +1,31 @@
+name: PayLens build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: maven
+      - name: Test PayLens modules
+        run: mvn -B -pl paylens-analysis,paylens-demo -am test
+      - name: Package runnable application
+        run: mvn -B -pl daxpay-start -am -DskipTests package
+  isolated-postgres:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: maven
+      - name: Run isolated PostgreSQL task-queue integration tests
+        run: mvn -B -pl paylens-integration-tests -am -Dtest=NoUnitTests -Dsurefire.failIfNoSpecifiedTests=false verify

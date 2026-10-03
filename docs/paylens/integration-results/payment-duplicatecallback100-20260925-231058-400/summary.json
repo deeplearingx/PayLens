@@ -1,0 +1,43 @@
+{
+  "runId": "20260925-231058-400",
+  "startedAt": "2026-09-25T23:10:58.4256776+08:00",
+  "dockerContext": "default",
+  "isolatedImages": [
+    "postgres:16-alpine",
+    "redis:7-alpine",
+    "apache/activemq-artemis:2.37.0-alpine"
+  ],
+  "roundsRequested": 1,
+  "raceMode": "DuplicateCallback100",
+  "jarName": "daxpay-start-validation4.jar",
+  "roundsPassed": 1,
+  "confirmWins": 0,
+  "ignoreWins": 0,
+  "syncSucceeded": 0,
+  "callbackSucceeded": 0,
+  "notificationsSent": 100,
+  "notificationRowsVerified": 100,
+  "durationMs": 59089,
+  "status": "PASSED",
+  "rounds": [
+    {
+      "round": 1,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "DuplicateCallback100",
+      "winner": null,
+      "actionResults": [],
+      "notificationCount": 100,
+      "persistedCallbackRows": 100,
+      "finalLocalStatus": "success",
+      "finalHandleStatus": "NOT_ABNORMAL",
+      "elapsedMs": 6657,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-duplicatecallback100\\20260925-231058-400\\round-01"
+    }
+  ],
+  "failureStep": null,
+  "failureType": null,
+  "browserTest": "NOT_RUN",
+  "browserScreenshot": null,
+  "completedAt": "2026-09-25T23:11:57.5123640+08:00"
+}

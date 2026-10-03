@@ -13,6 +13,20 @@ spring:
     multipart:
       # 上传文件大小限制为100M
       max-file-size: 100MB
+paylens:
+  analysis:
+    enabled: ${PAYLENS_ANALYSIS_ENABLED:false}
+  ai:
+    mode: ${PAYLENS_AI_MODE:mock}
+    base-url: ${PAYLENS_AI_BASE_URL:https://api.openai.com/v1}
+    api-key: ${PAYLENS_AI_API_KEY:}
+    model: ${PAYLENS_AI_MODEL:}
+    connect-timeout-seconds: ${PAYLENS_AI_CONNECT_TIMEOUT_SECONDS:5}
+    request-timeout-seconds: ${PAYLENS_AI_REQUEST_TIMEOUT_SECONDS:30}
+  demo:
+    enabled: ${PAYLENS_DEMO_ENABLED:false}
+    mch-no: ${PAYLENS_DEMO_MCH_NO:}
+    app-id: ${PAYLENS_DEMO_APP_ID:}
 # 监控端点与链路追踪(actuator 配置必须放在顶层, 不能放在 spring: 下)
 management:
   # 链路追踪配置(仅日志关联, 不导出到后端; 采样率 dev/prod 共享 1.0 全采样)

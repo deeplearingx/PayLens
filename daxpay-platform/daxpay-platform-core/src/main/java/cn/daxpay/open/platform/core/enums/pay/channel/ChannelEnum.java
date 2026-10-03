@@ -59,6 +59,8 @@ public enum ChannelEnum implements I18nSupport {
     ALLIN_PAY("allin_pay"),
     /// 收钱吧(聚合扫码收单)
     SHOUQIANBA("shouqianba"),
+    /// PayLens 演示用模拟通道(仅本地求职演示)
+    PAYLENS_SIM("paylens_sim"),
     ;
 
     private final String code;

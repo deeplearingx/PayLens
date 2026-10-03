@@ -1,4 +1,10 @@
-# Dromara Dax-Pay-Open
+# PayLens 支付异常事件工作台
+
+PayLens 是基于 Dromara DaxPay `4.0.0-beta7` 的求职演示扩展，提供支付异常证据时间线、事件归并、Spring AI 辅助分析与人工复核。本项目使用本地模拟通道，不接真实支付机构。安装方法、评测结果和能力边界见 [PayLens 项目说明](docs/paylens/README.md)。
+
+以下保留 DaxPay 上游项目介绍与许可信息。
+
+## Dromara Dax-Pay-Open
 
 <p align="left">
  <img src="https://img.shields.io/github/stars/dromara/dax-pay?style=flat&label=Github">

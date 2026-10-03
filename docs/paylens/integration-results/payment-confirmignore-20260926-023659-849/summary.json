@@ -1,0 +1,56 @@
+{
+  "runId": "20260926-023659-849",
+  "startedAt": "2026-09-26T02:36:59.8765655+08:00",
+  "dockerContext": "explicit endpoint",
+  "isolatedImages": [
+    "postgres:16-alpine",
+    "redis:7-alpine",
+    "apache/activemq-artemis:2.37.0-alpine"
+  ],
+  "roundsRequested": 1,
+  "raceMode": "ConfirmIgnore",
+  "jarName": "daxpay-start-paylens.jar",
+  "roundsPassed": 1,
+  "confirmWins": 0,
+  "ignoreWins": 1,
+  "syncSucceeded": 0,
+  "callbackSucceeded": 0,
+  "notificationsSent": 0,
+  "notificationRowsVerified": 0,
+  "durationMs": 121836,
+  "status": "FAILED",
+  "rounds": [
+    {
+      "round": 1,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "ConfirmIgnore",
+      "winner": "ignore",
+      "actionResults": [
+        {
+          "action": "confirm",
+          "httpStatus": 200,
+          "apiCode": 20044,
+          "succeeded": false
+        },
+        {
+          "action": "ignore",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "ignored",
+      "elapsedMs": 4895,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-confirmignore\\20260926-023659-849\\round-01"
+    }
+  ],
+  "failureStep": "headless-browser-workbench-flow",
+  "failureType": "RuntimeException",
+  "browserTest": "NOT_RUN",
+  "browserScreenshot": null,
+  "completedAt": "2026-09-26T02:39:01.7105574+08:00"
+}

@@ -1,0 +1,28 @@
+{
+  "runId": "20260926-015014-067",
+  "startedAt": "2026-09-26T01:50:14.0932540+08:00",
+  "dockerContext": "default",
+  "isolatedImages": [
+    "postgres:16-alpine",
+    "redis:7-alpine",
+    "apache/activemq-artemis:2.37.0-alpine"
+  ],
+  "roundsRequested": 1,
+  "raceMode": "ConfirmIgnore",
+  "jarName": "daxpay-start-paylens.jar",
+  "roundsPassed": 0,
+  "confirmWins": 0,
+  "ignoreWins": 0,
+  "syncSucceeded": 0,
+  "callbackSucceeded": 0,
+  "notificationsSent": 0,
+  "notificationRowsVerified": 0,
+  "durationMs": 93,
+  "status": "FAILED",
+  "rounds": [],
+  "failureStep": "start-isolated-infrastructure",
+  "failureType": "RuntimeException",
+  "browserTest": "NOT_RUN",
+  "browserScreenshot": null,
+  "completedAt": "2026-09-26T01:50:14.1849367+08:00"
+}

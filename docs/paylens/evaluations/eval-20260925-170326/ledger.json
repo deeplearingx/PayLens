@@ -1,0 +1,404 @@
+{
+  "calls": [
+    {
+      "failureCode": null,
+      "elapsedMs": 27408,
+      "status": "SUCCEEDED",
+      "startedAt": "2026-09-25T17:03:26.863702+08:00",
+      "condition": "evidence_plus_retrieval",
+      "completedAt": "2026-09-25T17:03:54.3363711+08:00",
+      "caseId": "EV-20",
+      "callId": "EV-20-B"
+    },
+    {
+      "caseId": "EV-10",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:05:22.0174067+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:04:38.2726442+00:00",
+      "callId": "EV-10-A",
+      "failureCode": null,
+      "elapsedMs": 43672
+    },
+    {
+      "caseId": "EV-12",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:06:07.8658855+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:05:22.0270958+00:00",
+      "callId": "EV-12-A",
+      "failureCode": null,
+      "elapsedMs": 45820
+    },
+    {
+      "caseId": "EV-01",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:06:50.1759757+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:06:07.8725251+00:00",
+      "callId": "EV-01-A",
+      "failureCode": null,
+      "elapsedMs": 42249
+    },
+    {
+      "caseId": "EV-03",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:07:24.2683614+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:06:50.2085055+00:00",
+      "callId": "EV-03-A",
+      "failureCode": null,
+      "elapsedMs": 34048
+    },
+    {
+      "caseId": "EV-10",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:08:11.1421542+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:07:24.2743956+00:00",
+      "callId": "EV-10-B",
+      "failureCode": null,
+      "elapsedMs": 46859
+    },
+    {
+      "caseId": "EV-04",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:08:46.5960567+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:08:11.1464238+00:00",
+      "callId": "EV-04-A",
+      "failureCode": null,
+      "elapsedMs": 35437
+    },
+    {
+      "caseId": "EV-12",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:09:31.9605131+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:08:46.6006453+00:00",
+      "callId": "EV-12-B",
+      "failureCode": null,
+      "elapsedMs": 45353
+    },
+    {
+      "caseId": "EV-08",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:10:20.9862853+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:09:31.9654841+00:00",
+      "callId": "EV-08-B",
+      "failureCode": null,
+      "elapsedMs": 49015
+    },
+    {
+      "caseId": "EV-15",
+      "status": "FAILED",
+      "completedAt": "2026-09-25T09:11:06.5629380+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:10:20.9904218+00:00",
+      "callId": "EV-15-B",
+      "failureCode": "INVALID_DIAGNOSTIC_OUTPUT",
+      "elapsedMs": 45565
+    },
+    {
+      "caseId": "EV-16",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:11:56.5759917+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:11:06.5717837+00:00",
+      "callId": "EV-16-B",
+      "failureCode": null,
+      "elapsedMs": 49997
+    },
+    {
+      "caseId": "EV-06",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:12:38.2294731+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:11:56.5808658+00:00",
+      "callId": "EV-06-A",
+      "failureCode": null,
+      "elapsedMs": 41641
+    },
+    {
+      "caseId": "EV-03",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:13:23.6201134+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:12:38.2341285+00:00",
+      "callId": "EV-03-B",
+      "failureCode": null,
+      "elapsedMs": 45378
+    },
+    {
+      "caseId": "EV-07",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:14:02.6551358+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:13:23.6285314+00:00",
+      "callId": "EV-07-A",
+      "failureCode": null,
+      "elapsedMs": 39019
+    },
+    {
+      "caseId": "EV-09",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:14:45.3280233+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:14:02.6594055+00:00",
+      "callId": "EV-09-A",
+      "failureCode": null,
+      "elapsedMs": 42662
+    },
+    {
+      "caseId": "EV-19",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:15:27.0705170+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:14:45.3327927+00:00",
+      "callId": "EV-19-B",
+      "failureCode": null,
+      "elapsedMs": 41730
+    },
+    {
+      "caseId": "EV-18",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:16:08.0748882+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:15:27.0749076+00:00",
+      "callId": "EV-18-A",
+      "failureCode": null,
+      "elapsedMs": 40994
+    },
+    {
+      "caseId": "EV-14",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:16:49.5024599+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:16:08.0834389+00:00",
+      "callId": "EV-14-A",
+      "failureCode": null,
+      "elapsedMs": 41412
+    },
+    {
+      "caseId": "EV-20",
+      "status": "FAILED",
+      "completedAt": "2026-09-25T09:17:28.5026402+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:16:49.5069255+00:00",
+      "callId": "EV-20-A",
+      "failureCode": "INVALID_DIAGNOSTIC_OUTPUT",
+      "elapsedMs": 38989
+    },
+    {
+      "caseId": "EV-16",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:18:09.7856765+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:17:28.5072183+00:00",
+      "callId": "EV-16-A",
+      "failureCode": null,
+      "elapsedMs": 41271
+    },
+    {
+      "caseId": "EV-04",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:18:53.5073803+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:18:09.7928986+00:00",
+      "callId": "EV-04-B",
+      "failureCode": null,
+      "elapsedMs": 43708
+    },
+    {
+      "caseId": "EV-02",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:19:29.7481712+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:18:53.5115691+00:00",
+      "callId": "EV-02-A",
+      "failureCode": null,
+      "elapsedMs": 36230
+    },
+    {
+      "caseId": "EV-08",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:20:13.6401393+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:19:29.7563264+00:00",
+      "callId": "EV-08-A",
+      "failureCode": null,
+      "elapsedMs": 43877
+    },
+    {
+      "caseId": "EV-09",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:20:55.1070056+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:20:13.6444624+00:00",
+      "callId": "EV-09-B",
+      "failureCode": null,
+      "elapsedMs": 41456
+    },
+    {
+      "caseId": "EV-02",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:21:45.1342670+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:20:55.1111283+00:00",
+      "callId": "EV-02-B",
+      "failureCode": null,
+      "elapsedMs": 50017
+    },
+    {
+      "caseId": "EV-14",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:22:26.6572087+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:21:45.1385509+00:00",
+      "callId": "EV-14-B",
+      "failureCode": null,
+      "elapsedMs": 41508
+    },
+    {
+      "caseId": "EV-11",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:23:05.3210498+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:22:26.6617669+00:00",
+      "callId": "EV-11-B",
+      "failureCode": null,
+      "elapsedMs": 38654
+    },
+    {
+      "caseId": "EV-19",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:23:53.3929622+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:23:05.3257444+00:00",
+      "callId": "EV-19-A",
+      "failureCode": null,
+      "elapsedMs": 48061
+    },
+    {
+      "caseId": "EV-01",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:24:42.0347407+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:23:53.3974252+00:00",
+      "callId": "EV-01-B",
+      "failureCode": null,
+      "elapsedMs": 48631
+    },
+    {
+      "caseId": "EV-05",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:25:21.8973159+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:24:42.0388155+00:00",
+      "callId": "EV-05-B",
+      "failureCode": null,
+      "elapsedMs": 39848
+    },
+    {
+      "caseId": "EV-13",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:26:01.5065814+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:25:21.9016332+00:00",
+      "callId": "EV-13-A",
+      "failureCode": null,
+      "elapsedMs": 39599
+    },
+    {
+      "caseId": "EV-07",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:26:44.7159253+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:26:01.5110070+00:00",
+      "callId": "EV-07-B",
+      "failureCode": null,
+      "elapsedMs": 43197
+    },
+    {
+      "caseId": "EV-17",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:27:28.8561969+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:26:44.7205914+00:00",
+      "callId": "EV-17-B",
+      "failureCode": null,
+      "elapsedMs": 44129
+    },
+    {
+      "caseId": "EV-18",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:28:12.6315801+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:27:28.8606761+00:00",
+      "callId": "EV-18-B",
+      "failureCode": null,
+      "elapsedMs": 43765
+    },
+    {
+      "caseId": "EV-13",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:28:54.5523680+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:28:12.6362196+00:00",
+      "callId": "EV-13-B",
+      "failureCode": null,
+      "elapsedMs": 41909
+    },
+    {
+      "caseId": "EV-17",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:29:40.6842533+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:28:54.5572055+00:00",
+      "callId": "EV-17-A",
+      "failureCode": null,
+      "elapsedMs": 46120
+    },
+    {
+      "caseId": "EV-05",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:30:19.3393812+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:29:40.6889168+00:00",
+      "callId": "EV-05-A",
+      "failureCode": null,
+      "elapsedMs": 38644
+    },
+    {
+      "caseId": "EV-11",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:31:00.3196837+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:30:19.3439353+00:00",
+      "callId": "EV-11-A",
+      "failureCode": null,
+      "elapsedMs": 40968
+    },
+    {
+      "caseId": "EV-15",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:31:44.0237350+00:00",
+      "condition": "evidence_only",
+      "startedAt": "2026-09-25T09:31:00.3246619+00:00",
+      "callId": "EV-15-A",
+      "failureCode": null,
+      "elapsedMs": 43693
+    },
+    {
+      "caseId": "EV-06",
+      "status": "SUCCEEDED",
+      "completedAt": "2026-09-25T09:32:20.5803524+00:00",
+      "condition": "evidence_plus_retrieval",
+      "startedAt": "2026-09-25T09:31:44.0279809+00:00",
+      "callId": "EV-06-B",
+      "failureCode": null,
+      "elapsedMs": 36545
+    }
+  ]
+}

@@ -31,6 +31,7 @@ import cn.daxpay.open.platform.core.util.DateTimeUtil;
 import cn.hutool.core.util.StrUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,6 +54,8 @@ public class PaySyncService {
     private final PaySyncRecordService paySyncRecordService;
     private final AbnormalOrderService abnormalOrderService;
     private final LockExecutor lockExecutor;
+    @Lazy
+    private final PaySyncService self;
 
     /// 按容器ID同步支付状态
     ///
@@ -60,11 +63,10 @@ public class PaySyncService {
     public NormalPaySyncResult syncByContainer(Long containerId, String tradeType) {
         PayTrade trade = payTradeManager.findByContainerId(containerId, tradeType)
                 .orElseThrow(() -> new BizInfoException(CommonErrorCode.VALIDATE_PARAMETERS_ERROR, "pay.error.payOrderNotExist"));
-        return this.doSyncPayOrder(trade, false);
+        return this.doSyncPayOrder(trade, false).result();
     }
 
     /// 支付同步
-    @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
     public NormalPaySyncResult sync(NormalPaySyncParam param) {
         if (StrUtil.isBlank(param.getOrderNo()) && Objects.isNull(param.getBizOrderNo())
                 && Objects.isNull(param.getOutOrderNo())) {
@@ -91,64 +93,76 @@ public class PaySyncService {
             // 支付: 支付订单不存在
             throw new BizInfoException(CommonErrorCode.VALIDATE_PARAMETERS_ERROR, "pay.error.payOrderNotExist");
         }
-        return this.doSyncPayOrder(trade, false);
+        return this.doSyncPayOrder(trade, false).result();
     }
 
     /// 同步支付状态(手动同步入口, 异常订单发现来源记 sync)
-    @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
     public NormalPaySyncResult syncPayOrder(PayTrade trade) {
-        return this.doSyncPayOrder(trade, false);
+        return this.doSyncPayOrder(trade, false).result();
+    }
+
+    /** PayLens-only result bound to the sync record created by this invocation. */
+    public SyncEvidence syncPayOrderWithEvidence(PayTrade trade) {
+        return this.doSyncPayOrder(trade, false).evidence();
     }
 
     /// 同步支付状态(定时任务入口, 异常订单发现来源记 job)
     ///
     /// 与 [#syncPayOrder] 逻辑一致, 区别仅在异常订单发现来源标记。
-    @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
     public NormalPaySyncResult syncPayOrderFromJob(PayTrade trade) {
-        return this.doSyncPayOrder(trade, true);
+        return this.doSyncPayOrder(trade, true).result();
     }
 
-    /// 同步执行主体(fromJob 仅影响异常订单发现来源标记, 事务语义由公开入口声明)
-    private NormalPaySyncResult doSyncPayOrder(PayTrade trade, boolean fromJob) {
+    /// 锁在事务外层，事务代理返回后才释放锁，避免其他线程读到未提交的查单结果。
+    private SyncOutcome doSyncPayOrder(PayTrade trade, boolean fromJob) {
         if (Objects.equals(trade.getStatus(), PayFundStatusEnum.INIT.getCode())) {
             // 支付: 订单未开始支付请重新确认支付状态
             throw new BizInfoException(DaxPayErrorCode.TRADE_STATUS_ERROR, "pay.error.pay.syncNotStarted");
         }
         return lockExecutor.execute(
                 TradeLockKeys.trade(trade.getId()),
-                () -> {
-                    ContainerInfo info = loadContainerInfo(trade);
-                    var context = new PayStrategyContext()
-                            .setTrade(trade)
-                            .setChannelMchNo(info.channelMchNo())
-                            .setCapability(info.capability())
-                            .setChannelAppId(info.channelAppId())
-                            .setClientIp(info.clientIp());
-                    var syncStrategy = PaymentStrategyFactory.createByProduct(
-                            info.product(), AbsSyncPayOrderStrategy.class);
-                    PaySyncResultBo syncResult = syncStrategy.doSync(context);
-                    syncResult.setFromJob(fromJob);
-                    if (!Objects.equals(syncResult.getOutOrderNo(), trade.getOutOrderNo())) {
-                        trade.setOutOrderNo(syncResult.getOutOrderNo());
-                        payTradeManager.updateById(trade);
-                    }
-                    boolean statusSync = this.checkAndAdjust(syncResult, trade, info);
-                    if (!statusSync) {
-                        try {
-                            this.adjustHandler(syncResult, trade, info);
-                        } catch (PayFailureException e) {
-                            syncResult.setSyncSuccess(false).setSyncErrorMsg(e.getMessage());
-                        }
-                    }
-                    // statusSync=true 表示本地与通道已一致、无需调整; API adjust 表示「是否触发了调整」
-                    boolean adjusted = !statusSync;
-                    this.saveRecord(trade, syncResult, adjusted, info);
-                    return new NormalPaySyncResult()
-                            .setOrderStatus(trade.getStatus())
-                            .setAdjust(adjusted);
-                },
+                () -> self.performSyncTransaction(trade.getTradeNo(), fromJob),
                 RepetitiveOperationException::new
         );
+    }
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
+    public SyncOutcome performSyncTransaction(String tradeNo, boolean fromJob) {
+        PayTrade trade = payTradeManager.findByTradeNoNotTenant(tradeNo)
+                .orElseThrow(() -> new BizInfoException(CommonErrorCode.VALIDATE_PARAMETERS_ERROR, "pay.error.payOrderNotExist"));
+        if (Objects.equals(trade.getStatus(), PayFundStatusEnum.INIT.getCode())) {
+            throw new BizInfoException(DaxPayErrorCode.TRADE_STATUS_ERROR, "pay.error.pay.syncNotStarted");
+        }
+        ContainerInfo info = loadContainerInfo(trade);
+        var context = new PayStrategyContext()
+                .setTrade(trade)
+                .setChannelMchNo(info.channelMchNo())
+                .setCapability(info.capability())
+                .setChannelAppId(info.channelAppId())
+                .setClientIp(info.clientIp());
+        var syncStrategy = PaymentStrategyFactory.createByProduct(info.product(), AbsSyncPayOrderStrategy.class);
+        PaySyncResultBo syncResult = syncStrategy.doSync(context);
+        syncResult.setFromJob(fromJob);
+        if (!Objects.equals(syncResult.getOutOrderNo(), trade.getOutOrderNo())) {
+            trade.setOutOrderNo(syncResult.getOutOrderNo());
+            payTradeManager.updateById(trade);
+        }
+        boolean statusSync = this.checkAndAdjust(syncResult, trade, info);
+        if (!statusSync) {
+            try {
+                this.adjustHandler(syncResult, trade, info);
+            } catch (PayFailureException e) {
+                syncResult.setSyncSuccess(false).setSyncErrorMsg(e.getMessage());
+            }
+        }
+        boolean adjusted = !statusSync;
+        PaySyncRecord record = this.saveRecord(trade, syncResult, adjusted, info);
+        NormalPaySyncResult result = new NormalPaySyncResult()
+                .setOrderStatus(trade.getStatus())
+                .setAdjust(adjusted);
+        SyncEvidence evidence = new SyncEvidence(String.valueOf(record.getId()), trade.getTradeNo(),
+                record.getOutTradeStatus(), record.getCreateTime());
+        return new SyncOutcome(result, evidence);
     }
 
     /// 校验同步结果是否需要调整
@@ -235,7 +249,7 @@ public class PaySyncService {
     }
 
     /// 记录支付同步流水(含通道同步快照与是否调整标记)
-    private void saveRecord(PayTrade trade, PaySyncResultBo syncResult, boolean adjust, ContainerInfo info) {
+    private PaySyncRecord saveRecord(PayTrade trade, PaySyncResultBo syncResult, boolean adjust, ContainerInfo info) {
         PaySyncRecord record = new PaySyncRecord()
                 .setAppId(trade.getAppId())
                 .setTradeNo(trade.getTradeNo())
@@ -251,7 +265,7 @@ public class PaySyncService {
                 .setErrorCode(syncResult.getSyncErrorCode())
                 .setErrorMsg(syncResult.getSyncErrorMsg());
         record.setMchNo(trade.getMchNo());
-        paySyncRecordService.saveRecord(record);
+        return paySyncRecordService.saveRecord(record);
     }
 
     /// 从容器(normal/gateway)提取同步流程所需字段
@@ -282,4 +296,7 @@ public class PaySyncService {
             String product, String channel, String bizOrderNo,
             OffsetDateTime expiredTime, String channelMchNo,
             String capability, String channelAppId, String clientIp) {}
+
+    public record SyncEvidence(String recordId, String tradeNo, String channelStatus, OffsetDateTime recordedAt) {}
+    public record SyncOutcome(NormalPaySyncResult result, SyncEvidence evidence) {}
 }

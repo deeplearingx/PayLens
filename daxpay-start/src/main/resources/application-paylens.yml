@@ -1,0 +1,86 @@
+server:
+  address: ${PAYLENS_SERVER_ADDRESS:127.0.0.1}
+  port: ${PAYLENS_SERVER_PORT:9999}
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${PAYLENS_DB_URL:jdbc:postgresql://localhost:5433/daxpay}
+    username: ${PAYLENS_DB_USER:paylens}
+    password: ${PAYLENS_DB_PASSWORD:paylens_local_only}
+    hikari:
+      minimum-idle: 2
+      maximum-pool-size: 20
+  data:
+    redis:
+      host: ${PAYLENS_REDIS_HOST:localhost}
+      port: ${PAYLENS_REDIS_PORT:6381}
+      database: ${PAYLENS_REDIS_DATABASE:0}
+      password: ${PAYLENS_REDIS_PASSWORD:paylens_local_only}
+  artemis:
+    mode: native
+    broker-url: ${PAYLENS_ARTEMIS_URL:tcp://localhost:61617}
+    user: ${PAYLENS_ARTEMIS_USER:paylens}
+    password: ${PAYLENS_ARTEMIS_PASSWORD:paylens_local_only}
+    pool:
+      enabled: true
+      max-connections: 5
+paylens:
+  demo:
+    duplicate-callback-count: ${PAYLENS_DEMO_DUPLICATE_CALLBACK_COUNT:2}
+  analysis:
+    enabled: ${PAYLENS_ANALYSIS_ENABLED:true}
+  embedding:
+    enabled: ${PAYLENS_EMBEDDING_ENABLED:true}
+    model-directory: ${PAYLENS_EMBEDDING_MODEL_DIR:models/bge-small-zh-v1.5}
+    max-batch-size: 16
+    max-sequence-length: 512
+  incidents:
+    enabled: ${PAYLENS_INCIDENTS_ENABLED:true}
+    semantic-auto-merge-enabled: ${PAYLENS_INCIDENT_SEMANTIC_AUTO_MERGE:false}
+    calibration-id: ${PAYLENS_INCIDENT_CALIBRATION_ID:}
+    grouping-threshold: ${PAYLENS_INCIDENT_GROUPING_THRESHOLD:0.90}
+    grouping-window-minutes: 10
+daxpay:
+  platform:
+    common:
+      exception:
+        show-full-message: true
+    starter:
+      auth:
+        enable-admin: true
+        admin-in-list: true
+        ignore-urls:
+          - '/actuator/**'
+          - '/v3/api-docs/**'
+          - '/swagger-ui/*'
+          - '/swagger-resources/**'
+          - '/token/**'
+          - '/ws/**'
+          - '/demo/**'
+          - '/test/**'
+          - '/error'
+          - '/favicon.ico'
+    config:
+      trade-sync-enabled: false
+      sandbox-enabled: true
+      key-config:
+        private-key: ${PAYLENS_RSA_PRIVATE_KEY}
+        public-key: ${PAYLENS_RSA_PUBLIC_KEY}
+      encrypt:
+        enable: true
+        keys:
+          - key: ${PAYLENS_ENCRYPT_KEY}
+            version: 1
+  channel:
+    one:
+      base-url: http://127.0.0.1:20100
+      transport-encrypt:
+        key: ${PAYLENS_CHANNEL_ONE_KEY}
+    two:
+      base-url: http://127.0.0.1:20200
+      transport-encrypt:
+        key: ${PAYLENS_CHANNEL_TWO_KEY}
+    three:
+      base-url: http://127.0.0.1:20300
+      transport-encrypt:
+        key: ${PAYLENS_CHANNEL_THREE_KEY}

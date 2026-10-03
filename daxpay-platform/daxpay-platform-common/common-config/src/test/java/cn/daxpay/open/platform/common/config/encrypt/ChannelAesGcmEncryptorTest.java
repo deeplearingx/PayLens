@@ -39,8 +39,8 @@ class ChannelAesGcmEncryptorTest {
 
         assertEquals(plaintext, decrypted);
         assertNotEquals(plaintext, encrypted);
-        // 无版本前缀
-        assertFalse(encrypted.startsWith("v"));
+        // Base64 ciphertext may naturally begin with "v"; an explicit version prefix has a delimiter.
+        assertFalse(encrypted.matches("^v\\d+:.*"));
     }
 
     @Test

@@ -1,0 +1,13 @@
+{
+  "createdAt": "2026-09-25T09:03:26.8122377+00:00",
+  "identity": {
+    "promptVersion": "sha256:b8b6775f9af34e1456284a23ac61f9268095514ec701684c4b42e31167b1a68b",
+    "knowledgeVersion": "75b297174d45f9d1",
+    "schemaVersion": "paylens-diagnostic-output-v1",
+    "casesHash": "cb12d64943c566514e05ac65a25cd74d76ba43c68e4c37eee806304385c0b02e",
+    "model": "qwen3.7-flash-2026-07-15",
+    "modelConfigHash": "1acc4be7aed40fa4f61018fac82f596251eb7b9c128c619a14a6602715f941d7"
+  },
+  "maxCalls": 40,
+  "providerHost": "maas.qianwenaiapi.com"
+}

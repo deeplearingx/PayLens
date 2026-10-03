@@ -49,7 +49,8 @@ public class LoginContentService {
                 .setLoginTypes(loginTypes)
                 // 是否启用验证码触发（登录失败达阈值后要求输入验证码）
                 .setEnableCaptcha(Boolean.TRUE.equals(loginSecurity.getCaptchaEnabled()))
-                .setPasswordEncrypted(false);
+                // PasswordLoginHandler always RSA-decrypts a non-blank password before validation.
+                .setPasswordEncrypted(true);
         // 按本端下发自动登录片段(无 client 时不下发, 保持关闭)
         if (StrUtil.isNotBlank(clientCode)) {
             PlatformSocialAutoLoginConfig.ClientAutoLogin auto =

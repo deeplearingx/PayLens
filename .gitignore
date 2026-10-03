@@ -19,8 +19,20 @@ rebel.xml
 .trae
 # AI 编程工具生成的项目配置与运行缓存（不入库，同 dax-pay-install 惯例）
 .lithe/
+.paylens-local-secrets.json
+/.env
+/.env.*
+!/.env.example
 
 nul
 
 # Artemis 嵌入式 broker 运行时持久化目录（journal/分页/绑定）
 data/
+
+# Local ONNX weights and export-only Python environment
+/models/
+/.venv-bge-export/
+
+# Keep the randomized condition mapping private until blind human scoring is complete
+docs/paylens/evaluations/**/blind-key.json
+docs/paylens/evaluations/**/blind-key.csv

@@ -1,0 +1,47 @@
+{
+  "reviewer": "AI-assisted Codex qualitative review",
+  "reviewerIsIndependentHuman": false,
+  "conditionMappingOpenedAfterManualScoresAndNotesWereLocked": true,
+  "blindingLimitation": "The output includes knowledge citation fields, which may allow the reviewer to infer the retrieval condition; treat this as condition-key-masked AI review, not strict blind review.",
+  "scoringIsIndependentHumanAssessment": false,
+  "scoreAndNotesSha256AtLock": "43a73384c0a57f099e6fddb7c3ecfe0b6b7df0a4c771bc7f2169c6c339ff8dc0",
+  "scoringScale": {
+    "2": "Covers the key points without material unsupported conclusions or unsafe advice.",
+    "1": "Partially covers the key points or contains a material omission/overreach.",
+    "0": "Major contradiction, unsupported conclusion, or unsafe handling recommendation."
+  },
+  "scoresIncludeAllResponses": true,
+  "noteOnScores": "Semantic scores include all model text, including responses rejected by automated structure/reference validation. They measure content against the synthetic case rubric, not production-usable success or diagnostic accuracy.",
+  "conditions": {
+    "evidence_only": {
+      "n": 19,
+      "scoreTotal": 31,
+      "maximumScore": 38,
+      "meanScore0to2": 1.6316,
+      "citationSupport": {
+        "SUPPORTED": 15,
+        "PARTIAL": 4,
+        "UNSUPPORTED": 0
+      }
+    },
+    "evidence_plus_retrieval": {
+      "n": 19,
+      "scoreTotal": 32,
+      "maximumScore": 38,
+      "meanScore0to2": 1.6842,
+      "citationSupport": {
+        "SUPPORTED": 13,
+        "PARTIAL": 4,
+        "UNSUPPORTED": 2
+      }
+    }
+  },
+  "pairedCases": {
+    "retrievalHigher": 4,
+    "evidenceOnlyHigher": 4,
+    "tie": 11,
+    "meanScoreDifferenceRetrievalMinusEvidenceOnly": 0.0526,
+    "medianPairedDifference": 0
+  },
+  "interpretation": "Descriptive results from a small synthetic dataset and a non-independent AI reviewer. The small score difference does not establish improved diagnosis quality or RAG effectiveness."
+}

@@ -43,5 +43,7 @@
   "allin_direct": "金服宝",
   "allin_direct_desc": "通联金服宝直联产品(AT直连收单, 支持沙箱环境)",
   "shouqianba": "收钱吧",
-  "shouqianba_desc": "收钱吧聚合扫码收单产品"
+  "shouqianba_desc": "收钱吧聚合扫码收单产品",
+  "paylens_sim": "PayLens 模拟通道",
+  "paylens_sim_desc": "仅用于 PayLens 本地演示，不连接真实支付机构"
 }

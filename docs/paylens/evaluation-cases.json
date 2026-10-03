@@ -1,0 +1,177 @@
+{
+  "version": "paylens-eval-cases-v1",
+  "cases": [
+    {
+      "id": "EV-01", "localStatus": "processing", "channelStatus": "success", "abnormalType": "callback_missing",
+      "evidence": [
+        {"id":"E1","type":"query","occurredAt":"2026-01-15T14:02:00+08:00","summary":"14:02 只读查单显示通道成功。"},
+        {"id":"E2","type":"callback_log","occurredAt":"2026-01-15T14:10:00+08:00","summary":"平台 14:00–14:10 回调入口日志无匹配记录。没有通道投递记录。"}
+      ],
+      "candidateKnowledgeIds":["lost-callback"],
+      "rubric":"可确认查单快照为成功、日志范围内无入口记录；不能证明通道未投递或回调失败原因。标记原因证据不足并要求补通道投递记录。"
+    },
+    {
+      "id": "EV-02", "localStatus": "close", "channelStatus": "success", "abnormalType": "late_success",
+      "evidence": [
+        {"id":"E1","type":"close","occurredAt":"2026-01-15T14:00:00+08:00","summary":"14:00 通道确认关单请求。"},
+        {"id":"E2","type":"callback","occurredAt":"2026-01-15T14:05:00+08:00","summary":"14:05 平台收到成功通知。无通道实际支付时间。"}
+      ],
+      "candidateKnowledgeIds":["late-success-after-close"],
+      "rubric":"通知晚于关单确认；支付与关单先后关系证据不足，需核对通道支付时间和当前查单。"
+    },
+    {
+      "id": "EV-03", "localStatus": "success", "channelStatus": "success", "abnormalType": "duplicate_callback",
+      "evidence": [
+        {"id":"E1","type":"callback","occurredAt":"2026-01-15T14:00:00+08:00","summary":"相同事件 ID、相同通道交易号与相同脱敏载荷摘要；第一次收到通知，平台返回成功应答。"},
+        {"id":"E2","type":"callback","occurredAt":"2026-01-15T14:00:20+08:00","summary":"20 秒后再次收到相同事件 ID、通道交易号与载荷摘要；平台返回成功应答。"}
+      ],
+      "candidateKnowledgeIds":["duplicate-callbacks"],
+      "rubric":"支持同一通知重复投递，不足以证明重复扣款；建议对照通道流水。"
+    },
+    {
+      "id": "EV-04", "localStatus": "processing", "channelStatus": "UNKNOWN", "abnormalType": "query_timeout",
+      "evidence": [
+        {"id":"E1","type":"query","occurredAt":"2026-01-15T14:00:00+08:00","summary":"最近一次查单在读取响应前超时。无其他通道或资金证据。"}
+      ],
+      "candidateKnowledgeIds":[],
+      "rubric":"结果未知，不能判断成功、失败或未扣款；列出后续只读查单和通道流水为缺失信息。"
+    },
+    {
+      "id": "EV-05", "localStatus": "success", "channelStatus": "success", "abnormalType": "amount_mismatch",
+      "evidence": [
+        {"id":"E1","type":"amount","occurredAt":"2026-01-15T14:00:00+08:00","summary":"同一通道交易号，平台订单金额 100.00 CNY，通道记录金额 90.00 CNY，均标注元。无优惠或分次结算记录。"}
+      ],
+      "candidateKnowledgeIds":["amount-mismatch"],
+      "rubric":"可确认记录间金额差异；差异原因证据不足，要求核对扣款、优惠及结算明细。"
+    },
+    {
+      "id": "EV-06", "localStatus": "fail", "channelStatus": "fail", "abnormalType": "merchant_config",
+      "evidence": [
+        {"id":"E1","type":"request","occurredAt":"2026-01-15T14:00:00+08:00","summary":"支付请求的应用标识为 app-7。"},
+        {"id":"E2","type":"channel_response","occurredAt":"2026-01-15T14:00:01+08:00","summary":"同一请求关联号的通道响应码为 APP_DISABLED。没有配置快照或变更审计。"}
+      ],
+      "candidateKnowledgeIds":["merchant-app-config","channel-rejection"],
+      "rubric":"可报告通道返回该错误码；需用对应接口文档和同一时点配置核实含义，不能断言平台应用被停用。"
+    },
+    {
+      "id": "EV-07", "localStatus": "fail", "channelStatus": "fail", "abnormalType": "channel_rejection",
+      "evidence": [
+        {"id":"E1","type":"channel_response","occurredAt":"2026-01-15T14:00:00+08:00","summary":"通道响应码 INVALID_MERCHANT，关联到商户号 M-9。无通道配置或开户资料。"}
+      ],
+      "candidateKnowledgeIds":["channel-rejection","merchant-app-config"],
+      "rubric":"可报告通道拒绝码；商户映射或通道侧限制为待验证假设，不可当作已知根因。"
+    },
+    {
+      "id": "EV-08", "localStatus": "success", "channelStatus": "success", "abnormalType": "refund_pending",
+      "evidence": [
+        {"id":"E1","type":"refund","occurredAt":"2026-01-15T14:00:00+08:00","summary":"退款单 R-3 当前状态为 PROGRESS。"},
+        {"id":"E2","type":"refund_query","occurredAt":"2026-01-15T14:05:00+08:00","summary":"14:05 只读退款查询仍返回 PROCESSING。无最终退款流水。"}
+      ],
+      "candidateKnowledgeIds":["refund-pending-failed"],
+      "rubric":"退款仍待确认；将退款状态与原支付成功状态分开描述，索取后续查询或资金流水。"
+    },
+    {
+      "id": "EV-09", "localStatus": "success", "channelStatus": "success", "abnormalType": "refund_failed",
+      "evidence": [
+        {"id":"E1","type":"refund_response","occurredAt":"2026-01-15T14:00:00+08:00","summary":"退款请求返回通道响应码 REFUND_LIMIT。没有后续退款查单或账户流水。"}
+      ],
+      "candidateKnowledgeIds":["refund-pending-failed"],
+      "rubric":"可确认本次请求返回该码；不能断言退款最终失败或资金未退，需核对错误码和后续资金结果。"
+    },
+    {
+      "id": "EV-10", "localStatus": "processing", "channelStatus": "success", "abnormalType": "db_delay",
+      "evidence": [
+        {"id":"E1","type":"database_read","occurredAt":"2026-01-15T14:00:01+08:00","summary":"主库状态为 processing。"},
+        {"id":"E2","type":"database_read","occurredAt":"2026-01-15T14:08:00+08:00","summary":"只读副本仍显示 processing。没有提交日志、缓存记录或消息记录。"}
+      ],
+      "candidateKnowledgeIds":["db-artemis-delay"],
+      "rubric":"可确认两个读取结果及时间不同；写入延迟、读副本延迟、缓存或队列根因证据不足。"
+    },
+    {
+      "id": "EV-11", "localStatus": "processing", "channelStatus": "processing", "abnormalType": "artemis",
+      "evidence": [
+        {"id":"E1","type":"queue_sample","occurredAt":"2026-01-15T14:00:00+08:00","summary":"相关队列采样显示积压 2,000 条，最老消息 12 分钟。"},
+        {"id":"E2","type":"message","occurredAt":"2026-01-15T13:50:00+08:00","summary":"一条消息的脱敏关联号与订单相符，暂未见消费应答。"}
+      ],
+      "candidateKnowledgeIds":["db-artemis-delay"],
+      "rubric":"可确认采样时存在积压且该消息未见应答；不能证明该消息导致订单状态未更新，需核对消费者、提交和应答日志。"
+    },
+    {
+      "id": "EV-12", "localStatus": "fail", "channelStatus": "success", "abnormalType": "terminal_conflict",
+      "evidence": [
+        {"id":"E1","type":"order_snapshot","occurredAt":"2026-01-15T14:00:00+08:00","summary":"订单号、通道交易号和商户号一致；平台快照状态为 fail。"},
+        {"id":"E2","type":"channel_query","occurredAt":"2026-01-15T14:03:00+08:00","summary":"同一订单及通道交易号的通道只读查询状态为 success。"}
+      ],
+      "candidateKnowledgeIds":["terminal-conflict"],
+      "rubric":"可报告同一交易的不同时间状态冲突；核对状态映射、时间线和资金流水，不自动冲正。"
+    },
+    {
+      "id": "EV-13", "localStatus": "close", "channelStatus": "success", "abnormalType": "terminal_conflict",
+      "evidence": [
+        {"id":"E1","type":"order_snapshot","occurredAt":"2026-01-15T14:00:00+08:00","summary":"平台订单号 A-13 状态 close。"},
+        {"id":"E2","type":"channel_query","occurredAt":"2026-01-15T14:03:00+08:00","summary":"通道查询返回外部订单号 B-9，状态 success。没有两者映射记录。"}
+      ],
+      "candidateKnowledgeIds":["terminal-conflict","late-success-after-close"],
+      "rubric":"证据不足：交易关联未建立，不能断言状态冲突或关单后支付；先取得可信映射证据。"
+    },
+    {
+      "id": "EV-14", "localStatus": "processing", "channelStatus": "UNKNOWN", "abnormalType": "callback_missing",
+      "evidence": [
+        {"id":"E1","type":"channel_delivery","occurredAt":"2026-01-15T14:00:00+08:00","summary":"通道投递日志显示事件已发送。"},
+        {"id":"E2","type":"gateway_log","occurredAt":"2026-01-15T14:00:01+08:00","summary":"平台网关在同一关联号记录 HTTP 401，原因摘要为签名校验失败。没有商户通知记录。"}
+      ],
+      "candidateKnowledgeIds":["lost-callback"],
+      "rubric":"可确认平台入口拒绝该请求；不要称为“未收到”，应核对签名配置与脱敏验签日志。"
+    },
+    {
+      "id": "EV-15", "localStatus": "processing", "channelStatus": "UNKNOWN", "abnormalType": "query_timeout",
+      "evidence": [
+        {"id":"E1","type":"channel_query","occurredAt":"2026-01-15T14:09:00+08:00","summary":"查单返回原始状态码 R06。没有接口版本或官方状态码映射。"}
+      ],
+      "candidateKnowledgeIds":["query-timeout"],
+      "rubric":"证据不足：不得把 R06 自行解释成处理中、成功或失败；索取通道版本对应的状态定义及更新查询。"
+    },
+    {
+      "id": "EV-16", "localStatus": "success", "channelStatus": "success", "abnormalType": "duplicate_callback",
+      "evidence": [
+        {"id":"E1","type":"channel_query","occurredAt":"2026-01-15T14:00:00+08:00","summary":"相同商户订单号对应通道交易号 T-1，查单显示 success，金额 30.00 CNY。"},
+        {"id":"E2","type":"channel_query","occurredAt":"2026-01-15T14:01:00+08:00","summary":"相同商户订单号对应不同通道交易号 T-2，查单也显示 success，金额 30.00 CNY。"}
+      ],
+      "candidateKnowledgeIds":["duplicate-callbacks"],
+      "rubric":"存在两笔成功交易的证据，与同一事件重复投递不同；建议人工对账确认资金，不自动退款。"
+    },
+    {
+      "id": "EV-17", "localStatus": "success", "channelStatus": "success", "abnormalType": "amount_mismatch",
+      "evidence": [
+        {"id":"E1","type":"amount","occurredAt":"2026-01-15T14:00:00+08:00","summary":"平台记录 12.34 CNY。"},
+        {"id":"E2","type":"amount","occurredAt":"2026-01-15T14:00:01+08:00","summary":"通道记录 1,234 分，折合 12.34 CNY。"}
+      ],
+      "candidateKnowledgeIds":["amount-mismatch"],
+      "rubric":"统一单位后金额相符；不得报告金额差异。"
+    },
+    {
+      "id": "EV-18", "localStatus": "fail", "channelStatus": "fail", "abnormalType": "merchant_config",
+      "evidence": [
+        {"id":"E1","type":"request","occurredAt":"2026-01-15T14:00:00+08:00","summary":"请求应用标识 app-A。"},
+        {"id":"E2","type":"order_link","occurredAt":"2026-01-15T14:00:01+08:00","summary":"订单关联记录显示应用标识 app-B。没有请求快照和配置变更审计。"}
+      ],
+      "candidateKnowledgeIds":["merchant-app-config"],
+      "rubric":"证据不足：可报告两处标识不同，但不能认定哪个值错误或由此导致失败；核对原始请求和关联审计。"
+    },
+    {
+      "id": "EV-19", "localStatus": "processing", "channelStatus": "fail", "abnormalType": "channel_rejection",
+      "evidence": [
+        {"id":"E1","type":"channel_response","occurredAt":"2026-01-15T14:00:00+08:00","summary":"支付调用返回响应码 RATE_LIMIT。"},
+        {"id":"E2","type":"channel_query","occurredAt":"2026-01-15T14:01:00+08:00","summary":"一分钟后的只读查单返回 PROCESSING。没有该通道错误码说明。"}
+      ],
+      "candidateKnowledgeIds":["channel-rejection","query-timeout"],
+      "rubric":"证据不足：可报告响应码和后续查询状态不同，不能自行解释码义或假定可安全重试；核对官方定义和更新资金结果。"
+    },
+    {
+      "id": "EV-20", "localStatus": "processing", "channelStatus": "UNKNOWN", "abnormalType": "payment_anomaly",
+      "evidence": [],
+      "candidateKnowledgeIds":["query-timeout"],
+      "rubric":"证据不足：不猜测原因；明确需要商户订单号关联、通道查询、回调或调用记录等信息；可引用已检索知识，但不能引用不存在的证据。"
+    }
+  ]
+}

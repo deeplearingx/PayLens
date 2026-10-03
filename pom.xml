@@ -35,6 +35,10 @@
         <module>daxpay-plugin</module>
         <!-- 功能演示模块（可独立装配；需隔离时移除 daxpay-start 中对应依赖即可） -->
         <module>daxpay-demo</module>
+        <module>paylens-analysis</module>
+        <module>paylens-incidents</module>
+        <module>paylens-demo</module>
+        <module>paylens-integration-tests</module>
     </modules>
     <properties>
         <java.version>25</java.version>
@@ -59,7 +63,21 @@
         <wxjava.version>4.8.6.B</wxjava.version>
         <commonmark.version>0.24.0</commonmark.version>
         <fesod.version>2.0.2-incubating</fesod.version>
+        <testcontainers.version>1.21.3</testcontainers.version>
+        <spring-ai.version>2.0.1</spring-ai.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.ai</groupId>
+                <artifactId>spring-ai-bom</artifactId>
+                <version>${spring-ai.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
         <plugins>

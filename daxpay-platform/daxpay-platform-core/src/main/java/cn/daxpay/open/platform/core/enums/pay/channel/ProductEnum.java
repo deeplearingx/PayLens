@@ -102,6 +102,8 @@ public enum ProductEnum implements I18nSupport {
     ALLIN_DIRECT("allin_direct"),
     /// 收钱吧(聚合扫码收单, 一通道一产品)
     SHOUQIANBA("shouqianba"),
+    /// PayLens 演示用模拟通道(仅本地求职演示)
+    PAYLENS_SIM("paylens_sim"),
     ;
 
     private final String code;
@@ -152,6 +154,8 @@ public enum ProductEnum implements I18nSupport {
             case ALLIN_CLOUD, ALLIN_CASHIER, ALLIN_PAYFUND, ALLIN_DIRECT -> ChannelEnum.ALLIN_PAY.getCode();
             // 收钱吧: 一通道一产品
             case SHOUQIANBA -> ChannelEnum.SHOUQIANBA.getCode();
+            // PayLens 本地演示模拟通道
+            case PAYLENS_SIM -> ChannelEnum.PAYLENS_SIM.getCode();
         };
     }
 

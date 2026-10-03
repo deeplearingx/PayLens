@@ -85,6 +85,11 @@
             <artifactId>daxpay-demo</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>cn.daxpay.open</groupId>
+            <artifactId>paylens-demo</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <!-- 数据库驱动 PG -->
         <dependency>
@@ -216,8 +221,11 @@
         </dependency>
     </dependencies>
 
+    <properties>
+        <paylens.finalName>daxpay-union</paylens.finalName>
+    </properties>
     <build>
-        <finalName>daxpay-union</finalName>
+        <finalName>${paylens.finalName}</finalName>
         <plugins>
             <!-- spring-boot -->
             <plugin>

@@ -1,0 +1,89 @@
+{
+  "structuralValidity": {
+    "valid": 38,
+    "responsesWithOutput": 40
+  },
+  "humanDiagnosisQuality": "PENDING_MANUAL_SCORING",
+  "knowledgeCitationIdValidity": {
+    "valid": 40,
+    "validatedResponses": 40
+  },
+  "calls": {
+    "consumed": 40,
+    "succeeded": 38,
+    "completed": 40,
+    "failed": 2,
+    "interrupted": 0,
+    "notStarted": 0,
+    "maximum": 40
+  },
+  "evidenceReferenceValidity": {
+    "valid": 40,
+    "validatedResponses": 40
+  },
+  "rawResultsDirectory": "raw/",
+  "tokenUsage": {
+    "responsesWithUsage": 40,
+    "unavailable": 0
+  },
+  "model": "qwen3.7-flash-2026-07-15",
+  "providerHost": "maas.qianwenaiapi.com",
+  "generatedAt": "2026-09-25T09:32:20.6311272+00:00",
+  "latencyMs": {
+    "measured": 40,
+    "values": [
+      27408,
+      43672,
+      45820,
+      42249,
+      34048,
+      46859,
+      35437,
+      45353,
+      49015,
+      45565,
+      49997,
+      41641,
+      45378,
+      39019,
+      42662,
+      41730,
+      40994,
+      41412,
+      38989,
+      41271,
+      43708,
+      36230,
+      43877,
+      41456,
+      50017,
+      41508,
+      38654,
+      48061,
+      48631,
+      39848,
+      39599,
+      43197,
+      44129,
+      43765,
+      41909,
+      46120,
+      38644,
+      40968,
+      43693,
+      36545
+    ]
+  },
+  "retrievalRecallAt3": {
+    "mean": 0.8421,
+    "measuredCases": 19
+  },
+  "identity": {
+    "knowledgeVersion": "75b297174d45f9d1",
+    "casesHash": "cb12d64943c566514e05ac65a25cd74d76ba43c68e4c37eee806304385c0b02e",
+    "model": "qwen3.7-flash-2026-07-15",
+    "modelConfigHash": "1acc4be7aed40fa4f61018fac82f596251eb7b9c128c619a14a6602715f941d7",
+    "schemaVersion": "paylens-diagnostic-output-v1",
+    "promptVersion": "sha256:b8b6775f9af34e1456284a23ac61f9268095514ec701684c4b42e31167b1a68b"
+  }
+}

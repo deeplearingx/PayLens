@@ -1,0 +1,569 @@
+{
+  "runId": "20260925-231744-878",
+  "startedAt": "2026-09-25T23:17:44.9045024+08:00",
+  "dockerContext": "default",
+  "isolatedImages": [
+    "postgres:16-alpine",
+    "redis:7-alpine",
+    "apache/activemq-artemis:2.37.0-alpine"
+  ],
+  "roundsRequested": 20,
+  "raceMode": "SyncCallback",
+  "jarName": "daxpay-start-validation4.jar",
+  "roundsPassed": 20,
+  "confirmWins": 0,
+  "ignoreWins": 0,
+  "syncSucceeded": 20,
+  "callbackSucceeded": 20,
+  "notificationsSent": 0,
+  "notificationRowsVerified": 0,
+  "durationMs": 130165,
+  "status": "PASSED",
+  "rounds": [
+    {
+      "round": 1,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 5253,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-01"
+    },
+    {
+      "round": 2,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3743,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-02"
+    },
+    {
+      "round": 3,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3681,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-03"
+    },
+    {
+      "round": 4,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3614,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-04"
+    },
+    {
+      "round": 5,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3650,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-05"
+    },
+    {
+      "round": 6,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3606,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-06"
+    },
+    {
+      "round": 7,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3640,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-07"
+    },
+    {
+      "round": 8,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3594,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-08"
+    },
+    {
+      "round": 9,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3551,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-09"
+    },
+    {
+      "round": 10,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3584,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-10"
+    },
+    {
+      "round": 11,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3599,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-11"
+    },
+    {
+      "round": 12,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3570,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-12"
+    },
+    {
+      "round": 13,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3519,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-13"
+    },
+    {
+      "round": 14,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3518,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-14"
+    },
+    {
+      "round": 15,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3432,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-15"
+    },
+    {
+      "round": 16,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3431,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-16"
+    },
+    {
+      "round": 17,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3429,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-17"
+    },
+    {
+      "round": 18,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3417,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-18"
+    },
+    {
+      "round": 19,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3398,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-19"
+    },
+    {
+      "round": 20,
+      "business": "SUCCEEDED",
+      "diagnosis": "SUCCEEDED",
+      "raceMode": "SyncCallback",
+      "winner": null,
+      "actionResults": [
+        {
+          "action": "sync",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        },
+        {
+          "action": "callback",
+          "httpStatus": 200,
+          "apiCode": 0,
+          "succeeded": true
+        }
+      ],
+      "notificationCount": 0,
+      "persistedCallbackRows": 0,
+      "finalLocalStatus": "close",
+      "finalHandleStatus": "pending",
+      "elapsedMs": 3346,
+      "runDirectory": "D:\\workspace\\java_ai\\paylens\\daxpay-start\\target\\paylens-payment-synccallback\\20260925-231744-878\\round-20"
+    }
+  ],
+  "failureStep": null,
+  "failureType": null,
+  "browserTest": "PASSED",
+  "browserScreenshot": "D:\\workspace\\java_ai\\paylens\\docs\\paylens\\integration-results\\payment-synccallback-20260925-231744-878\\paylens-workbench.png",
+  "completedAt": "2026-09-25T23:19:55.0667192+08:00"
+}
