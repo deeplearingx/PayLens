@@ -1,0 +1,1118 @@
+[
+  {
+    "blindCaseId": "AI-006",
+    "variant": "X",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "仅有回调记录缺失，平台资金状态未给出，不能称资金状态不一致"
+  },
+  {
+    "blindCaseId": "AI-006",
+    "variant": "Y",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-007",
+    "variant": "X",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 1,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "EXTRA_KNOWLEDGE_CITATION",
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "未给出平台资金状态，状态不一致是推测"
+  },
+  {
+    "blindCaseId": "AI-007",
+    "variant": "Y",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-008",
+    "variant": "X",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-008",
+    "variant": "Y",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-009",
+    "variant": "X",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-009",
+    "variant": "Y",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-010",
+    "variant": "X",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-010",
+    "variant": "Y",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "未给出平台资金状态，状态不一致是推测"
+  },
+  {
+    "blindCaseId": "AI-011",
+    "variant": "X",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-011",
+    "variant": "Y",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 1,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "EXTRA_KNOWLEDGE_CITATION"
+    ],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-012",
+    "variant": "X",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "未给出本地资金状态，状态不一致是推测"
+  },
+  {
+    "blindCaseId": "AI-012",
+    "variant": "Y",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "未给出本地资金状态，资金状态不一致是推测"
+  },
+  {
+    "blindCaseId": "AI-013",
+    "variant": "X",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "通知日志缺失不能证明支付结果不一致"
+  },
+  {
+    "blindCaseId": "AI-013",
+    "variant": "Y",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "通知日志缺失不能证明平台资金状态与通道冲突"
+  },
+  {
+    "blindCaseId": "AI-014",
+    "variant": "X",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-014",
+    "variant": "Y",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 1,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "EXTRA_KNOWLEDGE_CITATION"
+    ],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-015",
+    "variant": "X",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 1,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "EXTRA_KNOWLEDGE_CITATION",
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "通知接收表缺记录，不能证明平台资金状态不同"
+  },
+  {
+    "blindCaseId": "AI-015",
+    "variant": "Y",
+    "category": "routine",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "通知接收表缺记录，不能证明平台资金状态不同"
+  },
+  {
+    "blindCaseId": "AI-021",
+    "variant": "X",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-021",
+    "variant": "Y",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-022",
+    "variant": "X",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-022",
+    "variant": "Y",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-023",
+    "variant": "X",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-023",
+    "variant": "Y",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 1,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "EXTRA_KNOWLEDGE_CITATION"
+    ],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-024",
+    "variant": "X",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-024",
+    "variant": "Y",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "仅有查询超时，外部状态未同步属于未证实解释"
+  },
+  {
+    "blindCaseId": "AI-025",
+    "variant": "X",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-025",
+    "variant": "Y",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 1,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "EXTRA_KNOWLEDGE_CITATION"
+    ],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-026",
+    "variant": "X",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-026",
+    "variant": "Y",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-027",
+    "variant": "X",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-027",
+    "variant": "Y",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-028",
+    "variant": "X",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-028",
+    "variant": "Y",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 1,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "EXTRA_KNOWLEDGE_CITATION"
+    ],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-029",
+    "variant": "X",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-029",
+    "variant": "Y",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-030",
+    "variant": "X",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-030",
+    "variant": "Y",
+    "category": "insufficient",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-036",
+    "variant": "X",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-036",
+    "variant": "Y",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 1,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "EXTRA_KNOWLEDGE_CITATION"
+    ],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-037",
+    "variant": "X",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-037",
+    "variant": "Y",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-038",
+    "variant": "X",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-038",
+    "variant": "Y",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 1,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "EXTRA_KNOWLEDGE_CITATION"
+    ],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-039",
+    "variant": "X",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 1,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "EXTRA_KNOWLEDGE_CITATION"
+    ],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-039",
+    "variant": "Y",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-040",
+    "variant": "X",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-040",
+    "variant": "Y",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-041",
+    "variant": "X",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "已关闭状态不等于本应更新为成功"
+  },
+  {
+    "blindCaseId": "AI-041",
+    "variant": "Y",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 1,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "EXTRA_KNOWLEDGE_CITATION"
+    ],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-042",
+    "variant": "X",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-042",
+    "variant": "Y",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-043",
+    "variant": "X",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-043",
+    "variant": "Y",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 1,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "EXTRA_KNOWLEDGE_CITATION"
+    ],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-044",
+    "variant": "X",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-044",
+    "variant": "Y",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "证据只有关单，未证明本地先判交易失败"
+  },
+  {
+    "blindCaseId": "AI-045",
+    "variant": "X",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-045",
+    "variant": "Y",
+    "category": "conflict",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-051",
+    "variant": "X",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "归档字典损坏与支付处理的因果关联未给出"
+  },
+  {
+    "blindCaseId": "AI-051",
+    "variant": "Y",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "归档字典损坏并非已证实的支付查询接口响应"
+  },
+  {
+    "blindCaseId": "AI-052",
+    "variant": "X",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-052",
+    "variant": "Y",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-053",
+    "variant": "X",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "附件页数差异未证明交易因此被标记异常"
+  },
+  {
+    "blindCaseId": "AI-053",
+    "variant": "Y",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "附件页数差异未证明交易因此被标记异常"
+  },
+  {
+    "blindCaseId": "AI-054",
+    "variant": "X",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "归档文件编码问题与支付查询的关联未给出"
+  },
+  {
+    "blindCaseId": "AI-054",
+    "variant": "Y",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "归档文件编码问题与支付查询的关联未给出"
+  },
+  {
+    "blindCaseId": "AI-055",
+    "variant": "X",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "离线报告磁盘不足不能直接归因为支付异常"
+  },
+  {
+    "blindCaseId": "AI-055",
+    "variant": "Y",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "离线报告磁盘不足不能直接归因为支付异常"
+  },
+  {
+    "blindCaseId": "AI-056",
+    "variant": "X",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "报表模板问题与支付异常的关联未给出"
+  },
+  {
+    "blindCaseId": "AI-056",
+    "variant": "Y",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "报表模板问题与支付异常的关联未给出"
+  },
+  {
+    "blindCaseId": "AI-057",
+    "variant": "X",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "备份摘要不一致不能直接归因为支付系统故障"
+  },
+  {
+    "blindCaseId": "AI-057",
+    "variant": "Y",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "备份摘要不一致不能直接归因为支付系统故障"
+  },
+  {
+    "blindCaseId": "AI-058",
+    "variant": "X",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "失效软链接与支付查询异常的因果关联未给出"
+  },
+  {
+    "blindCaseId": "AI-058",
+    "variant": "Y",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "失效软链接与支付查询异常的因果关联未给出"
+  },
+  {
+    "blindCaseId": "AI-059",
+    "variant": "X",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-059",
+    "variant": "Y",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-060",
+    "variant": "X",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 2,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [],
+    "reviewNote": null
+  },
+  {
+    "blindCaseId": "AI-060",
+    "variant": "Y",
+    "category": "no_match",
+    "scores": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1,
+      "citationSupport": 2,
+      "suggestionRisk": 2
+    },
+    "auditFlags": [
+      "AI_REVIEW_OVERRIDE"
+    ],
+    "reviewNote": "文档生成缺字体不能直接归因为支付异常"
+  }
+]

@@ -1,0 +1,1385 @@
+{
+  "datasetVersion": "analysis-holdout-v2",
+  "cases": [
+    {
+      "id": "AI-006",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:06:00Z",
+          "lastObservedAt": "2026-09-28T10:06:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-006",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:06:00Z",
+            "summary": "渠道账单已有成功交易，平台回调接收记录为空。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "routine",
+      "candidateKnowledgeIds": [
+        "lost-callback"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-007",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:07:00Z",
+          "lastObservedAt": "2026-09-28T10:07:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-007",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:07:00Z",
+            "summary": "支付结果查询为成功，应用没有收到关联支付通知。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "routine",
+      "candidateKnowledgeIds": [
+        "lost-callback"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-008",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:08:00Z",
+          "lastObservedAt": "2026-09-28T10:08:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-008",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:08:00Z",
+            "summary": "外部流水标明成功，平台仅能查到处理中订单。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "routine",
+      "candidateKnowledgeIds": [
+        "lost-callback"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-009",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:09:00Z",
+          "lastObservedAt": "2026-09-28T10:09:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-009",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:09:00Z",
+            "summary": "渠道发送支付完成结果后，本地通知审计没有对应项。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "routine",
+      "candidateKnowledgeIds": [
+        "lost-callback"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-010",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:10:00Z",
+          "lastObservedAt": "2026-09-28T10:10:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-010",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:10:00Z",
+            "summary": "主动查询显示成功，本地回调入口没有相应处理痕迹。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "routine",
+      "candidateKnowledgeIds": [
+        "lost-callback"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-011",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:11:00Z",
+          "lastObservedAt": "2026-09-28T10:11:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-011",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:11:00Z",
+            "summary": "付款已由通道确认，平台仍等候异步通知更新状态。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "routine",
+      "candidateKnowledgeIds": [
+        "lost-callback"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-012",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:12:00Z",
+          "lastObservedAt": "2026-09-28T10:12:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-012",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:12:00Z",
+            "summary": "支付网关已完成交易，本地系统未记录回调到达。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "routine",
+      "candidateKnowledgeIds": [
+        "lost-callback"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-013",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:13:00Z",
+          "lastObservedAt": "2026-09-28T10:13:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-013",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:13:00Z",
+            "summary": "渠道侧支付终态明确成功，平台通知日志缺失。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "routine",
+      "candidateKnowledgeIds": [
+        "lost-callback"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-014",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:14:00Z",
+          "lastObservedAt": "2026-09-28T10:14:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-014",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:14:00Z",
+            "summary": "通道对账记录为支付成功，本地订单还在处理中。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "routine",
+      "candidateKnowledgeIds": [
+        "lost-callback"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-015",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:15:00Z",
+          "lastObservedAt": "2026-09-28T10:15:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-015",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:15:00Z",
+            "summary": "交易结果查询成功，但异步支付通知尚未写入接收表。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "routine",
+      "candidateKnowledgeIds": [
+        "lost-callback"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-021",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:21:00Z",
+          "lastObservedAt": "2026-09-28T10:21:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-021",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:21:00Z",
+            "summary": "通道查单连接在读取响应时超时，未知交易最终状态。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "insufficient",
+      "candidateKnowledgeIds": [
+        "query-timeout"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-022",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:22:00Z",
+          "lastObservedAt": "2026-09-28T10:22:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-022",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:22:00Z",
+            "summary": "支付状态查询长时间无返回，不能推断成功或失败。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "insufficient",
+      "candidateKnowledgeIds": [
+        "query-timeout"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-023",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:23:00Z",
+          "lastObservedAt": "2026-09-28T10:23:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-023",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:23:00Z",
+            "summary": "远端查单响应缺失，平台只保留处理中记录。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "insufficient",
+      "candidateKnowledgeIds": [
+        "query-timeout"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-024",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:24:00Z",
+          "lastObservedAt": "2026-09-28T10:24:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-024",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:24:00Z",
+            "summary": "支付结果接口响应时限已过，外部状态尚未取得。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "insufficient",
+      "candidateKnowledgeIds": [
+        "query-timeout"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-025",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:25:00Z",
+          "lastObservedAt": "2026-09-28T10:25:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-025",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:25:00Z",
+            "summary": "通道查询超时且没有流水佐证，交易仍待人工核查。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "insufficient",
+      "candidateKnowledgeIds": [
+        "query-timeout"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-026",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:26:00Z",
+          "lastObservedAt": "2026-09-28T10:26:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-026",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:26:00Z",
+            "summary": "查单调用没有取得有效响应，支付终态无法确认。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "insufficient",
+      "candidateKnowledgeIds": [
+        "query-timeout"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-027",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:27:00Z",
+          "lastObservedAt": "2026-09-28T10:27:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-027",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:27:00Z",
+            "summary": "查询客户端报告读取超时，平台没有确认的渠道结果。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "insufficient",
+      "candidateKnowledgeIds": [
+        "query-timeout"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-028",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:28:00Z",
+          "lastObservedAt": "2026-09-28T10:28:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-028",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:28:00Z",
+            "summary": "订单状态查询返回未知，缺少进一步的通道凭据。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "insufficient",
+      "candidateKnowledgeIds": [
+        "query-timeout"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-029",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:29:00Z",
+          "lastObservedAt": "2026-09-28T10:29:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-029",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:29:00Z",
+            "summary": "查单链路在等待阶段中止，当前只知道本地处理中。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "insufficient",
+      "candidateKnowledgeIds": [
+        "query-timeout"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-030",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:30:00Z",
+          "lastObservedAt": "2026-09-28T10:30:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-030",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:30:00Z",
+            "summary": "通道侧查询未返回终态，不能根据超时认定扣款结果。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "insufficient",
+      "candidateKnowledgeIds": [
+        "query-timeout"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-036",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:36:00Z",
+          "lastObservedAt": "2026-09-28T10:36:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-036",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:36:00Z",
+            "summary": "平台终态为关闭，渠道交易终态显示成功。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "conflict",
+      "candidateKnowledgeIds": [
+        "terminal-conflict"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-037",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:37:00Z",
+          "lastObservedAt": "2026-09-28T10:37:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-037",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:37:00Z",
+            "summary": "已经关闭的支付单被回调告知通道付款成功。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "conflict",
+      "candidateKnowledgeIds": [
+        "terminal-conflict"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-038",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:38:00Z",
+          "lastObservedAt": "2026-09-28T10:38:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-038",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:38:00Z",
+            "summary": "订单在本地结束为关闭，外部查单却返回成功。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "conflict",
+      "candidateKnowledgeIds": [
+        "terminal-conflict"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-039",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:39:00Z",
+          "lastObservedAt": "2026-09-28T10:39:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-039",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:39:00Z",
+            "summary": "通道成功流水对应平台已关单交易，双方终态不一致。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "conflict",
+      "candidateKnowledgeIds": [
+        "terminal-conflict"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-040",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:40:00Z",
+          "lastObservedAt": "2026-09-28T10:40:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-040",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:40:00Z",
+            "summary": "本地关闭状态存在，迟到通知表示支付已完成。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "conflict",
+      "candidateKnowledgeIds": [
+        "terminal-conflict"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-041",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:41:00Z",
+          "lastObservedAt": "2026-09-28T10:41:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-041",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:41:00Z",
+            "summary": "渠道确认收款，但同一交易的平台状态仍为关闭。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "conflict",
+      "candidateKnowledgeIds": [
+        "terminal-conflict"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-042",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:42:00Z",
+          "lastObservedAt": "2026-09-28T10:42:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-042",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:42:00Z",
+            "summary": "关单时间早于成功回调到达时间，需核对时序。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "conflict",
+      "candidateKnowledgeIds": [
+        "terminal-conflict"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-043",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:43:00Z",
+          "lastObservedAt": "2026-09-28T10:43:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-043",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:43:00Z",
+            "summary": "平台拒绝修改已关闭订单，渠道回执却说明付款成功。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "conflict",
+      "candidateKnowledgeIds": [
+        "terminal-conflict"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-044",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:44:00Z",
+          "lastObservedAt": "2026-09-28T10:44:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-044",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:44:00Z",
+            "summary": "交易被本地关单后，远端仍报告成功支付。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "conflict",
+      "candidateKnowledgeIds": [
+        "terminal-conflict"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-045",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:45:00Z",
+          "lastObservedAt": "2026-09-28T10:45:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-045",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:45:00Z",
+            "summary": "关闭记录与渠道支付完成通知同属一笔交易。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "conflict",
+      "candidateKnowledgeIds": [
+        "terminal-conflict"
+      ],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-051",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:51:00Z",
+          "lastObservedAt": "2026-09-28T10:51:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-051",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:51:00Z",
+            "summary": "文件压缩步骤报告字典损坏，待人工检查归档产物。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "no_match",
+      "candidateKnowledgeIds": [],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-052",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:52:00Z",
+          "lastObservedAt": "2026-09-28T10:52:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-052",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:52:00Z",
+            "summary": "历史报表索引重建时发现排序规则版本不一致。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "no_match",
+      "candidateKnowledgeIds": [],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-053",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:53:00Z",
+          "lastObservedAt": "2026-09-28T10:53:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-053",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:53:00Z",
+            "summary": "静态附件校验中发现文档页数与登记值不同。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "no_match",
+      "candidateKnowledgeIds": [],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-054",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:54:00Z",
+          "lastObservedAt": "2026-09-28T10:54:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-054",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:54:00Z",
+            "summary": "归档文件读取器发现一段无效的文本编码序列。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "no_match",
+      "candidateKnowledgeIds": [],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-055",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:55:00Z",
+          "lastObservedAt": "2026-09-28T10:55:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-055",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:55:00Z",
+            "summary": "离线报告任务写文件时磁盘空间不足。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "no_match",
+      "candidateKnowledgeIds": [],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-056",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:56:00Z",
+          "lastObservedAt": "2026-09-28T10:56:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-056",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:56:00Z",
+            "summary": "旧版导出模板缺失表头字段，报表无法打开。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "no_match",
+      "candidateKnowledgeIds": [],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-057",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:57:00Z",
+          "lastObservedAt": "2026-09-28T10:57:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-057",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:57:00Z",
+            "summary": "备份校验器发现两个文件的摘要值不一致。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "no_match",
+      "candidateKnowledgeIds": [],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-058",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:58:00Z",
+          "lastObservedAt": "2026-09-28T10:58:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-058",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:58:00Z",
+            "summary": "文件系统目录扫描时遇到失效的软链接。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "no_match",
+      "candidateKnowledgeIds": [],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-059",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T10:59:00Z",
+          "lastObservedAt": "2026-09-28T10:59:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-059",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T10:59:00Z",
+            "summary": "本地归档任务不能识别新增的压缩格式标识。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "no_match",
+      "candidateKnowledgeIds": [],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    },
+    {
+      "id": "AI-060",
+      "input": {
+        "statistics": {
+          "observationCount": 1,
+          "distinctTradeCount": 1,
+          "firstObservedAt": "2026-09-28T11:00:00Z",
+          "lastObservedAt": "2026-09-28T11:00:00Z",
+          "typeDistribution": {
+            "QUERY": 1
+          },
+          "ordersAmountByCurrency": {
+            "CNY": 1000
+          }
+        },
+        "evidence": [
+          {
+            "id": "E-060",
+            "type": "QUERY",
+            "occurredAt": "2026-09-28T11:00:00Z",
+            "summary": "离线文档生成任务缺少字体文件导致渲染失败。"
+          }
+        ],
+        "omittedEvidenceCount": 0
+      },
+      "category": "no_match",
+      "candidateKnowledgeIds": [],
+      "scoringPoints": [
+        "仅把证据写成事实",
+        "将解释标为待验证假设",
+        "不建议直接改变资金状态"
+      ]
+    }
+  ]
+}

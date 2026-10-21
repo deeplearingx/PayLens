@@ -15,7 +15,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PayLensPermissionContractTest {
     private static final List<Class<?>> CONTROLLERS = List.of(
-            PayLensController.class, PayLensScenarioController.class, PayLensPageController.class);
+            PayLensController.class, PayLensScenarioController.class, PayLensPageController.class,
+            PayLensIncidentController.class);
 
     @Test
     void everyPayLensRouteRequiresTheAdminMenuAndExplicitReadOrManagePermission() {
@@ -35,6 +36,16 @@ class PayLensPermissionContractTest {
             }
         }
         assertTrue(routeCount >= 20, "the contract should cover every current PayLens endpoint");
+    }
+
+    @Test
+    void suggestionsAreViewOnlyAndManualMergeRequiresManagePermission() throws Exception {
+        assertEquals(PermCodes.Action.VIEW,
+                PayLensIncidentController.class.getDeclaredMethod("mergeSuggestions", String.class)
+                        .getDeclaredAnnotation(PermCode.class).code());
+        assertEquals(PermCodes.Action.MANAGE,
+                PayLensIncidentController.class.getDeclaredMethod("merge", PayLensIncidentController.MergeRequest.class)
+                        .getDeclaredAnnotation(PermCode.class).code());
     }
 
     private boolean isRoute(Method method) {

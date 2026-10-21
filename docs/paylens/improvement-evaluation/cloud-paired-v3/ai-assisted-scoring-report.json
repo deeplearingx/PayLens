@@ -1,0 +1,36 @@
+{
+  "disclosure": "AI 辅助评分，未经独立人工验证",
+  "method": "固定四维0-2标准；条件映射在80份盲表完成评分后读取。脚本先标记显性风险，Codex逐例阅读摘要并记录27项无据推断人工复核覆盖；引用内容可能透露条件，非严格双盲。",
+  "rubric": "../ai-review-rubric-v1.json",
+  "scoresByCondition": {
+    "HYBRID": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1.65,
+      "citationSupport": 1.7,
+      "suggestionRisk": 2,
+      "totalMeanOutOf8": 7.35,
+      "flaggedWeakCitations": 12,
+      "aiInferenceOverrides": 14
+    },
+    "KEYWORD": {
+      "answerCoverage": 2,
+      "unsupportedInference": 1.675,
+      "citationSupport": 2,
+      "suggestionRisk": 2,
+      "totalMeanOutOf8": 7.675,
+      "flaggedWeakCitations": 0,
+      "aiInferenceOverrides": 13
+    }
+  },
+  "pairedTotals": {
+    "hybridWins": 2,
+    "hybridLosses": 14,
+    "ties": 24
+  },
+  "limitations": [
+    "合成单证据样例不代表真实交易分布",
+    "部分无匹配样例的支付统计与文件故障描述人为拼接",
+    "AI 评阅可能受知识引用字段影响",
+    "分数不等于诊断准确率"
+  ]
+}

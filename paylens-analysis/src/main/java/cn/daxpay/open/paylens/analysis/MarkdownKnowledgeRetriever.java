@@ -87,4 +87,22 @@ public class MarkdownKnowledgeRetriever implements KnowledgeRetriever {
     }
 
     @Override public String version() { return version; }
+    @Override public KnowledgeRetrieval retrieveDetailed(DiagnosticInput input, int limit, String mode) {
+        if (!"KEYWORD".equals(mode)) throw new IllegalStateException("RETRIEVAL_MODE_UNAVAILABLE");
+        List<KnowledgeChunk> ranked = retrieve(input, limit);
+        List<KnowledgeRetrieval.Hit> hits = new ArrayList<>();
+        for (int i = 0; i < ranked.size(); i++) {
+            hits.add(new KnowledgeRetrieval.Hit(ranked.get(i), i + 1,
+                    (double) keywordScore(input, ranked.get(i)), null, 1.0 / (61 + i)));
+        }
+        return new KnowledgeRetrieval(mode, version(), hits);
+    }
+    int keywordScore(DiagnosticInput input, KnowledgeChunk chunk) {
+        String haystack = (input.abnormalType() + " " + input.localStatus() + " " + input.channelStatus() + " " +
+                input.evidence().stream().map(DiagnosticEvidence::summary).reduce("", (a, b) -> a + " " + b))
+                .toLowerCase(Locale.ROOT);
+        return chunk.keywords().stream().map(String::toLowerCase).filter(haystack::contains)
+                .mapToInt(k -> k.length() > 3 ? 2 : 1).sum();
+    }
+    List<KnowledgeChunk> chunks() { return chunks; }
 }

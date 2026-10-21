@@ -15,23 +15,25 @@ public class IncidentAnalysisJsonValidator {
     public IncidentAnalysisJsonValidator(ObjectMapper mapper) { this.mapper = mapper; }
 
     public IncidentAnalysisResult validate(String json, IncidentAnalysisInput input, Set<String> knowledgeIds) {
-        Object parsed;
-        try { parsed = mapper.readValue(json, Object.class); }
+        tools.jackson.databind.JsonNode parsed;
+        try { parsed = mapper.readTree(json); }
         catch (Exception exception) { throw new DiagnosticValidationException("INVALID_JSON", "事件分析未返回有效 JSON"); }
-        if (!(parsed instanceof java.util.Map<?, ?>)) {
+        if (!parsed.isObject()) {
             throw new DiagnosticValidationException("INVALID_STRUCTURE", "事件分析 JSON 根节点必须是对象");
         }
+        IncidentOutputSchema.validate(parsed, mapper);
         IncidentAnalysisResult result;
         try { result = mapper.readValue(json, IncidentAnalysisResult.class); }
         catch (Exception exception) { throw new DiagnosticValidationException("INVALID_STRUCTURE", "事件分析 JSON 字段类型与输出契约不匹配"); }
-        if (result == null || blank(result.commonPhenomenon()) || result.commonPhenomenon().length() > 1200 ||
+        if (result == null ||
                 result.facts() == null || result.differences() == null || result.possibleExplanations() == null ||
                 result.checkSteps() == null || result.missingInformation() == null || result.knowledgeCitations() == null) {
             throw new DiagnosticValidationException("INVALID_STRUCTURE", "事件分析缺少必填字段或共同现象无效");
         }
+        if (blank(result.commonPhenomenon())) throw invalidFact();
         if (result.facts().size() > 12 || result.differences().size() > 12 || result.possibleExplanations().size() > 3 ||
                 result.checkSteps().size() > 8 || result.missingInformation().size() > 8) {
-            throw new DiagnosticValidationException("INVALID_STRUCTURE", "事件分析结果超过允许条数");
+            throw new DiagnosticValidationException("INVALID_LIMIT", "事件分析结果超过允许条数");
         }
         Set<String> allowedEvidence = input.evidence().stream().map(DiagnosticEvidence::id).collect(Collectors.toSet());
         Set<String> citedEvidence = new HashSet<>();
@@ -59,7 +61,7 @@ public class IncidentAnalysisJsonValidator {
             throw new DiagnosticValidationException("MISSING_KNOWLEDGE_DECISION", "检索到知识时须引用知识或说明未采用原因");
         }
         if (result.knowledgeOmissionReason() != null && result.knowledgeOmissionReason().length() > 500) {
-            throw new DiagnosticValidationException("INVALID_STRUCTURE", "知识未采用说明过长");
+            throw new DiagnosticValidationException("INVALID_LIMIT", "知识未采用说明过长");
         }
         String usage = knowledgeIds.isEmpty() ? "NO_MATCH" : result.knowledgeCitations().isEmpty() ? "NOT_USED" : "CITED";
         return new IncidentAnalysisResult(result.commonPhenomenon(), result.facts(), result.differences(),
@@ -68,7 +70,7 @@ public class IncidentAnalysisJsonValidator {
     }
 
     private DiagnosticValidationException invalidFact() {
-        return new DiagnosticValidationException("INVALID_STRUCTURE", "事实、差异和待验证解释必须带有效证据引用");
+        return new DiagnosticValidationException("INVALID_FACT", "事实、差异和待验证解释必须带有效证据引用");
     }
     private boolean blank(String value) { return value == null || value.isBlank(); }
 }

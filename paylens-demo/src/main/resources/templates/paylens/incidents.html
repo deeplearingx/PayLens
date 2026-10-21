@@ -19,6 +19,7 @@
     <section class="panel"><div class="head"><h2>事件候选</h2><div class="actions"><span id="eventCount" class="badge">0</span><button id="mergeSelected" class="soft">合并选中事件</button></div></div><div id="events" class="body list"><div class="empty">先运行一次扫描。</div></div></section>
     <section class="panel"><div class="head"><h2>事件详情与 AI 分析</h2><span id="eventState" class="badge">未选择</span></div><div id="detail" class="body"><div class="empty">从左侧选择事件。</div></div></section>
   </div>
+  <section class="panel"><div class="head"><h2>相似事件建议</h2><button class="soft" onclick="loadMergeSuggestions()">查看当前事件建议</button></div><div class="body" id="mergeSuggestions"><p class="notice">选择事件后可查看候选；建议只供人工复核。</p></div></section>
 </main>
 <script>
 const api='/paylens/api';const $=id=>document.getElementById(id);let batchId=null,selectedIncident=null,selection=0,pollTimer=null,activeAnalysis=null,currentIncident=null,currentPageItems=[];
@@ -42,6 +43,37 @@ async function retryAnalysis(){if(!activeAnalysis||!selectedIncident)return;cons
 async function splitSelected(){if(!currentIncident)return;const selected=[...document.querySelectorAll('[data-member-id]:checked')].map(box=>box.dataset.memberId);const all=(currentIncident.members||[]).map(item=>item.id);const remaining=all.filter(id=>!selected.includes(id));if(!selected.length||!remaining.length){$('analysisStatus').textContent='需至少勾选一条，并保留一条在当前事件';return}const members=new Map(currentIncident.members.map(item=>[item.id,item]));const preview=selected.map(id=>members.get(id)).filter(Boolean).map(item=>`${item.id} · ${item.phase} · ${item.tradeNo}`).join('\n');if(!confirm(`拆分预览：${selected.length} 条成员移入新事件，${remaining.length} 条保留在当前事件。\n\n移出成员：\n${preview}\n\n继续？`))return;const remark=prompt('填写本次拆分原因（必填，最多 500 字）：');if(!remark||!remark.trim())return;const version=selection;try{const result=await request(`/incidents/${encodeURIComponent(currentIncident.id)}/split`,{method:'POST',body:JSON.stringify({expectedVersion:currentIncident.version,groups:[remaining,selected],remark:remark.trim()})});if(version!==selection)return;await loadIncidents(batchId);await selectIncident(result.incidentIds[0]);$('analysisStatus').textContent=`拆分完成：${result.memberCounts.join(' / ')} 条`;}catch(e){if(version===selection)$('analysisStatus').textContent=e.message}}
 async function mergeSelected(){if(!batchId)return;const selected=[...document.querySelectorAll('#events input[data-incident-id]:checked')];if(selected.length<2){$('batchState').textContent='请先勾选至少两个事件';return}const ids=selected.map(box=>box.dataset.incidentId);const rows=ids.map(id=>currentPageItems.find(item=>item.id===id)).filter(Boolean);const preview=rows.map(row=>`${row.id} · ${row.statistics?.observationCount??0} 条观察 · ${row.statistics?.distinctTradeCount??0} 笔交易 · v${row.version}`).join('\n');const total=rows.reduce((sum,row)=>sum+(row.statistics?.observationCount??0),0);if(!confirm(`合并预览：${rows.length} 个事件、共 ${total} 条观察将并入一个事件；其余事件会保留为已归档历史。\n\n${preview}\n\n继续？`))return;const remark=prompt('填写本次合并原因（必填，最多 500 字）：');if(!remark||!remark.trim())return;try{const result=await request('/incidents/merge',{method:'POST',body:JSON.stringify({incidents:rows.map(row=>({incidentId:row.id,version:row.version})),remark:remark.trim()})});await loadIncidents(batchId);await selectIncident(result.incidentId);$('analysisStatus').textContent=`合并完成：${result.memberCount} 条观察；旧事件已归档`;}catch(e){$('batchState').textContent=e.message}}
 async function refreshProgress(){if(!currentIncident)return;try{const result=await request(`/incidents/${encodeURIComponent(currentIncident.id)}/refresh`,{method:'POST',body:'{}'});$('currentProgress').textContent=`当前交易状态（${result.distinctTradeCount} 笔）：${JSON.stringify(result.currentStatusDistribution||{})} · ${fmt(result.refreshedAt)}`}catch(e){$('currentProgress').textContent=e.message}}
+async function loadMergeSuggestions(){
+  if(!selectedIncident){$('mergeSuggestions').textContent='请先选择事件';return}
+  const selected=selectedIncident;
+  try{
+    const data=await request(`/incidents/${encodeURIComponent(selected)}/merge-suggestions`);
+    if(selected!==selectedIncident)return;
+    if(data.status!=='READY'){$('mergeSuggestions').textContent=data.status==='UNAVAILABLE'?'本地向量模型暂不可用':'候选建议尚未通过校准';return}
+    if(!data.items.length){$('mergeSuggestions').textContent='当前没有达到阈值的相似事件建议';return}
+    $('mergeSuggestions').innerHTML='<p class="notice">相似度只表示异常现象接近，不代表共同根因。</p>'+data.items.map(item=>`<div class="fact"><b>${esc(item.incidentId)}</b> · 相似度 ${Number(item.similarity).toFixed(3)}<small>${esc(item.representativeDescription)} · ${esc(item.ruleCheck)}</small><button class="soft" onclick="confirmMergeSuggestion('${encodeURIComponent(item.incidentId)}',${item.sourceVersion},${item.candidateVersion})">人工确认合并</button></div>`).join('');
+  }catch(error){$('mergeSuggestions').textContent=error.message}
+}
+async function confirmMergeSuggestion(encodedId,sourceVersion,candidateVersion){
+  if(!selectedIncident)return;
+  const candidateId=decodeURIComponent(encodedId);
+  const remark=prompt('填写人工确认合并的原因（必填）：');
+  if(!remark||!remark.trim())return;
+  try{
+    const result=await request('/incidents/merge',{method:'POST',body:JSON.stringify({incidents:[{incidentId:selectedIncident,version:sourceVersion},{incidentId:candidateId,version:candidateVersion}],remark:remark.trim()})});
+    await loadIncidents(batchId);await selectIncident(result.incidentId);$('mergeSuggestions').textContent='合并完成，操作已记录审计。';
+  }catch(error){$('mergeSuggestions').textContent=error.message}
+}
+const originalRenderAnalysis=renderAnalysis;
+function failureExplanation(code){return ({MODEL_TIMEOUT:'模型请求超时，请稍后重试',MODEL_TASK_TIMEOUT:'任务内模型调用时限已用尽',MODEL_RATE_LIMITED:'模型服务限流，请稍后重试',RETRIEVAL_MODE_UNAVAILABLE:'提交时选定的本地向量检索模式已不可用，请重新分析',INVALID_EVIDENCE_REFERENCE:'模型引用了本次证据之外的 ID',INVALID_KNOWLEDGE_CITATION:'模型引用了本次检索之外的知识',REPAIR_CONTEXT_TOO_LARGE:'格式修复上下文超过 16 KB',INVALID_STRUCTURE:'模型输出结构不符合契约',INVALID_JSON:'模型输出不是有效 JSON'})[code]||code||'未知错误'}
+const originalPollAnalysis=pollAnalysis;
+pollAnalysis=async function(eventId,id,version){await originalPollAnalysis(eventId,id,version);if(version!==selection||!activeAnalysis)return;const box=$('analysisResult');if(box&&box.textContent.startsWith('分析失败：')){const code=box.textContent.replace('分析失败：','').split('重试')[0].trim();box.querySelector('.error')?.prepend(document.createTextNode(failureExplanation(code)+' · '))}}
+renderAnalysis=function(task,version){
+  originalRenderAnalysis(task,version);
+  if(version!==selection||!task.result)return;
+  const calls=(task.modelCalls||[]).map(call=>`<li>${esc(call.kind)} · ${esc(call.status)} · ${esc(call.failureCode||'')} · ${call.durationMs??'未知'} ms · Token ${call.promptTokens??'未知'}/${call.completionTokens??'未知'}</li>`).join('');
+  $('analysisResult').insertAdjacentHTML('beforeend',`<p class="notice">检索模式：${esc(task.execution?.retrievalMode||'KEYWORD')} · 排队 ${task.queueDurationMs??'未知'} ms · 格式修复 ${Math.max(0,(task.modelCalls||[]).filter(call=>call.kind==='FORMAT_REPAIR').length)} 次</p><h4>模型调用明细</h4><ul>${calls||'<li>历史任务无调用明细</li>'}</ul>`);
+};
 $('scan').onclick=startScan;$('mergeSelected').onclick=mergeSelected;const now=new Date();const scanEnd=new Date(now);scanEnd.setSeconds(0,0);scanEnd.setMinutes(scanEnd.getMinutes()+1);$('to').value=localInput(scanEnd);$('from').value=localInput(new Date(scanEnd.getTime()-3600000));
 </script>
 </body></html>

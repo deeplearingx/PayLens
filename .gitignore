@@ -36,3 +36,7 @@ data/
 # Keep the randomized condition mapping private until blind human scoring is complete
 docs/paylens/evaluations/**/blind-key.json
 docs/paylens/evaluations/**/blind-key.csv
+
+# Python evaluation script caches
+__pycache__/
+*.pyc

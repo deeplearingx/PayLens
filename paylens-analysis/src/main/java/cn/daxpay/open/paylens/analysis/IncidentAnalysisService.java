@@ -75,18 +75,17 @@ public class IncidentAnalysisService {
         IncidentAnalysisInput input = sanitize(rawInput);
         String evidenceJson = canonicalJson(input);
         String snapshotHash = sha256(evidenceJson);
-        List<KnowledgeChunk> knowledge = knowledgeRetriever.retrieve(retrievalInput(input), 3).stream()
-                .sorted(Comparator.comparing(KnowledgeChunk::id)).toList();
-        String knowledgeJson = writeJson(knowledge);
+        String retrievalMode = knowledgeRetriever.mode();
+        String knowledgeJson = "[]";
         String modelConfigurationId = sha256(model.configurationId());
         String promptVersion = sha256(IncidentAnalysisPromptBuilder.versionMaterial());
         String knowledgeVersion = knowledgeRetriever.version();
         String reuseKey = sha256(mchNo + "\n" + incidentId + "\n" + incidentVersion + "\n" + snapshotHash +
                 "\n" + modelConfigurationId + "\n" + promptVersion + "\n" + IncidentAnalysisPromptBuilder.SCHEMA_VERSION + "\n" +
-                knowledgeVersion + "\n" + sha256(knowledgeJson));
+                knowledgeVersion + "\n" + retrievalMode);
         IncidentAnalysisExecution execution = new IncidentAnalysisExecution(OffsetDateTime.now(), snapshotHash,
                 model.modelId(), modelConfigurationId, promptVersion, IncidentAnalysisPromptBuilder.SCHEMA_VERSION,
-                knowledgeVersion, knowledge, false);
+                knowledgeVersion, retrievalMode, List.of(), false);
         IncidentAnalysisTask task = repository.insertIfAbsent(mchNo, incidentId, incidentVersion, reuseKey,
                 snapshotHash, evidenceJson, writeJson(execution), knowledgeJson);
         if ("QUEUED".equals(task.status()) && !task.reused()) signalQueue();
@@ -144,15 +143,45 @@ public class IncidentAnalysisService {
                 return;
             }
             IncidentAnalysisInput input = repository.snapshot(id).orElseThrow();
-            List<KnowledgeChunk> knowledge = repository.retrievedKnowledge(id);
+            KnowledgeRetrieval retrieval = knowledgeRetriever.retrieveDetailed(retrievalInput(input), 3,
+                    execution.retrievalMode());
+            List<KnowledgeChunk> knowledge = retrieval.chunks().stream().sorted(Comparator.comparing(KnowledgeChunk::id)).toList();
+            repository.storeRetrievedKnowledge(id, writeJson(knowledge));
             String prompt = IncidentAnalysisPromptBuilder.build(input, knowledge, mapper);
             if (prompt.getBytes(StandardCharsets.UTF_8).length > MAX_CONTEXT_BYTES) {
                 throw new IllegalArgumentException("模型上下文超过 16 KB");
             }
-            DiagnosticModelResponse response = model.analyzeDetailed(prompt);
             Set<String> knowledgeIds = new HashSet<>();
             knowledge.forEach(chunk -> knowledgeIds.add(chunk.id()));
-            IncidentAnalysisResult result = validator.validate(response.content(), input, knowledgeIds);
+            DiagnosticModelResponse response = null;
+            IncidentAnalysisResult result = null;
+            String currentPrompt = prompt;
+            for (int call = 0; call < 2; call++) {
+                if (elapsed(started) >= (call == 0 ? 120_000 : 60_000)) {
+                    throw new DiagnosticModelException("MODEL_TASK_TIMEOUT");
+                }
+                String kind = call == 0 ? "INITIAL" : "FORMAT_REPAIR";
+                long callId = repository.startModelCall(id, kind, model.modelId());
+                long callStarted = System.nanoTime();
+                DiagnosticModelResponse candidate = null;
+                try {
+                    candidate = model.analyzeDetailed(currentPrompt);
+                    repository.recordModelResponse(callId, candidate);
+                    result = validator.validate(candidate.content(), input, knowledgeIds);
+                    repository.finishModelCall(callId, "SUCCEEDED", null, elapsed(callStarted), candidate);
+                    response = candidate;
+                    break;
+                } catch (DiagnosticValidationException validation) {
+                    repository.finishModelCall(callId, "FAILED", validation.failureCode(), elapsed(callStarted), candidate);
+                    if (call == 1 || !("INVALID_JSON".equals(validation.failureCode()) ||
+                            "INVALID_STRUCTURE".equals(validation.failureCode()))) throw validation;
+                    currentPrompt = IncidentFormatRepair.prompt(prompt, candidate.content(),
+                            validation.failureCode() + ": " + validation.getMessage(), mapper);
+                } catch (Exception exception) {
+                    repository.finishModelCall(callId, "FAILED", failureCode(exception), elapsed(callStarted), candidate);
+                    throw exception;
+                }
+            }
             repository.markSucceeded(id, writeJson(result), elapsed(started), response);
         } catch (Exception exception) {
             repository.markFailed(id, failureCode(exception), elapsed(started));
@@ -205,6 +234,8 @@ public class IncidentAnalysisService {
     private String failureCode(Exception exception) {
         if (exception instanceof DiagnosticValidationException validation) return validation.failureCode();
         if (exception instanceof DiagnosticModelException modelFailure) return modelFailure.failureCode();
+        if (exception instanceof IllegalStateException state && "RETRIEVAL_MODE_UNAVAILABLE".equals(state.getMessage()))
+            return "RETRIEVAL_MODE_UNAVAILABLE";
         if (exception instanceof java.net.http.HttpTimeoutException) return "MODEL_TIMEOUT";
         if (exception instanceof IllegalArgumentException) return "INVALID_ANALYSIS_DATA";
         if (exception instanceof TaskRejectedException) return "QUEUE_FULL";

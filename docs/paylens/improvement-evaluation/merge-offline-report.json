@@ -1,0 +1,2330 @@
+{
+  "modelSha256": "de07885703c40d7aa8caca2997594906169ffae212e5a5409c6da5e6d48b0518",
+  "selectedThreshold": null,
+  "thresholdCalibrated": false,
+  "diagnosticThreshold": 0.8,
+  "method": "Known hard boundaries, one deduplicated description per event, CLS/L2 cosine, top-3",
+  "development": {
+    "precisionAt3": 0.4033333333333333,
+    "precisionAmongShownAt3": 0.9603174603174603,
+    "recallAt3": 0.5041666666666667,
+    "noRelatedSuggestionRate": 0.0,
+    "crossBoundarySuggestions": 0,
+    "returned": 126,
+    "truePositive": 121,
+    "rankings": [
+      {
+        "id": "DEV-000",
+        "chosen": []
+      },
+      {
+        "id": "DEV-001",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8118483006833891,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-002",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8127333406389664,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-003",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8528255349336968,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-004",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 0.82906401597145,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8268674292146935,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-005",
+        "chosen": []
+      },
+      {
+        "id": "DEV-006",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-007",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-008",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-009",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 0.8285605861027264,
+            "relevant": true
+          },
+          {
+            "id": "N1",
+            "similarity": 0.8162612914401175,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "DEV-010",
+        "chosen": []
+      },
+      {
+        "id": "DEV-011",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.805634977768706,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-012",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-013",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.850276314024901,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-014",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 0.8286546007127794,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8040198576292112,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-015",
+        "chosen": []
+      },
+      {
+        "id": "DEV-016",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-017",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8143358710774357,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-018",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8573100145149529,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-019",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 0.8071299498341775,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-020",
+        "chosen": []
+      },
+      {
+        "id": "DEV-021",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8086656208928122,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-022",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 0.9999999999999998,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8181065501525728,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-023",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8490486660966142,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-024",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 0.8276761875298886,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8220326727249638,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-025",
+        "chosen": []
+      },
+      {
+        "id": "DEV-026",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-027",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-028",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-029",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 0.824341859549439,
+            "relevant": true
+          },
+          {
+            "id": "N1",
+            "similarity": 0.8160230088975358,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "DEV-030",
+        "chosen": []
+      },
+      {
+        "id": "DEV-031",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8171983478285715,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-032",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-033",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.852200378698672,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-034",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 0.825074142385222,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-035",
+        "chosen": []
+      },
+      {
+        "id": "DEV-036",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-037",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8150890569462359,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-038",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.856014809003842,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-039",
+        "chosen": []
+      },
+      {
+        "id": "DEV-040",
+        "chosen": []
+      },
+      {
+        "id": "DEV-041",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8088364397201597,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-042",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8127880595367971,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-043",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8473637061076529,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-044",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 0.8231158348644221,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8199590965706269,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-045",
+        "chosen": []
+      },
+      {
+        "id": "DEV-046",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-047",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-048",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-049",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 0.8229319198450888,
+            "relevant": true
+          },
+          {
+            "id": "N1",
+            "similarity": 0.8114661958216344,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "DEV-050",
+        "chosen": []
+      },
+      {
+        "id": "DEV-051",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 0.9999999999999999,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8046118380222524,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-052",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-053",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000007,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.846479081241829,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-054",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 0.8218400185154586,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-055",
+        "chosen": []
+      },
+      {
+        "id": "DEV-056",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-057",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8178288436714559,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-058",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8570078292528628,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-059",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 0.8063775267083881,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-060",
+        "chosen": []
+      },
+      {
+        "id": "DEV-061",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.811161012004737,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-062",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8129748017116272,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-063",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8506528087229321,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-064",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 0.8227747733286153,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8227454079563686,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-065",
+        "chosen": []
+      },
+      {
+        "id": "DEV-066",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-067",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-068",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-069",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 0.8229489551786779,
+            "relevant": true
+          },
+          {
+            "id": "N1",
+            "similarity": 0.8154466417263573,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "DEV-070",
+        "chosen": []
+      },
+      {
+        "id": "DEV-071",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8082229200599571,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-072",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-073",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8459553599997178,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-074",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 0.823157126227412,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-075",
+        "chosen": []
+      },
+      {
+        "id": "DEV-076",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-077",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8170564444071711,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-078",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8548845795375029,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-079",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 0.8055247794779183,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-080",
+        "chosen": []
+      },
+      {
+        "id": "DEV-081",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8113142611635344,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-082",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.816613770125133,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-083",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8500142746086458,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-084",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 0.8256326895860968,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8229807206745492,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-085",
+        "chosen": []
+      },
+      {
+        "id": "DEV-086",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-087",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-088",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-089",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 0.8224863050437872,
+            "relevant": true
+          },
+          {
+            "id": "N1",
+            "similarity": 0.8134013094448731,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "DEV-090",
+        "chosen": []
+      },
+      {
+        "id": "DEV-091",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8050736763104523,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-092",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-093",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000007,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8550905145698826,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-094",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 0.8300178689740385,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8053248008127791,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-095",
+        "chosen": []
+      },
+      {
+        "id": "DEV-096",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-097",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8175661071960646,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-098",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8603114507289175,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "DEV-099",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 0.804318029053076,
+            "relevant": true
+          }
+        ]
+      }
+    ]
+  },
+  "holdout": {
+    "precisionAt3": 0.38,
+    "precisionAmongShownAt3": 0.7916666666666666,
+    "recallAt3": 0.475,
+    "noRelatedSuggestionRate": 0.0,
+    "crossBoundarySuggestions": 0,
+    "returned": 144,
+    "truePositive": 114,
+    "rankings": [
+      {
+        "id": "HOLDOUT-000",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-001",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-002",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "N0",
+            "similarity": 0.8383351758183166,
+            "relevant": false
+          },
+          {
+            "id": "N4",
+            "similarity": 0.8383351758183166,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-003",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "N3",
+            "similarity": 0.8560160819762359,
+            "relevant": false
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8292495631092587,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-004",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 0.8648313844986834,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8051253978349872,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-005",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-006",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-007",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-008",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 0.9999999999999999,
+            "relevant": true
+          },
+          {
+            "id": "N2",
+            "similarity": 0.8164792159424926,
+            "relevant": false
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8019068667999172,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-009",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-010",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-011",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8028480074617321,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-012",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8172751481163634,
+            "relevant": true
+          },
+          {
+            "id": "N2",
+            "similarity": 0.8082919694951738,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-013",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8598336846215416,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.828228138525384,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-014",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-015",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-016",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8277127927308735,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-017",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8190281306997088,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-018",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8398176220291389,
+            "relevant": true
+          },
+          {
+            "id": "N0",
+            "similarity": 0.8116959006916555,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-019",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 0.8638962565686323,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-020",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-021",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-022",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "N0",
+            "similarity": 0.8401575194903945,
+            "relevant": false
+          },
+          {
+            "id": "N4",
+            "similarity": 0.8401575194903945,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-023",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "N3",
+            "similarity": 0.8550746907242847,
+            "relevant": false
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8288166403675962,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-024",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 0.860940404641064,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-025",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-026",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-027",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-028",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "N2",
+            "similarity": 0.8131267278612424,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-029",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-030",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-031",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8067210518561152,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-032",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8129653407138535,
+            "relevant": true
+          },
+          {
+            "id": "N2",
+            "similarity": 0.8078347114508291,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-033",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8557255711674795,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8276424118284407,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-034",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 0.8013811044307528,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-035",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-036",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.823804468466454,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-037",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8148248140501633,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-038",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8347212103249786,
+            "relevant": true
+          },
+          {
+            "id": "N0",
+            "similarity": 0.8051240788395546,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-039",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 0.8593721173432823,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-040",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-041",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-042",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "N0",
+            "similarity": 0.8330341721919878,
+            "relevant": false
+          },
+          {
+            "id": "N4",
+            "similarity": 0.8330341721919878,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-043",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "N3",
+            "similarity": 0.847296379902047,
+            "relevant": false
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8228637553487238,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-044",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 0.857902651801388,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-045",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-046",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-047",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-048",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "N2",
+            "similarity": 0.8016915400156064,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-049",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-050",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-051",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-052",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8113263166382007,
+            "relevant": true
+          },
+          {
+            "id": "N2",
+            "similarity": 0.8011359126438704,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-053",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8516323900425964,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8231537134244661,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-054",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-055",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-056",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 0.9999999999999998,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8203205332112231,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-057",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.814824962119421,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-058",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 0.9999999999999998,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8366349307121437,
+            "relevant": true
+          },
+          {
+            "id": "N0",
+            "similarity": 0.8083346540474348,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-059",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 0.8633221266368859,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-060",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-061",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-062",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "N0",
+            "similarity": 0.841689747221603,
+            "relevant": false
+          },
+          {
+            "id": "N4",
+            "similarity": 0.841689747221603,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-063",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0,
+            "relevant": true
+          },
+          {
+            "id": "N3",
+            "similarity": 0.851322943084931,
+            "relevant": false
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8299439179299337,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-064",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 0.8596175853942619,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-065",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-066",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-067",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-068",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "N2",
+            "similarity": 0.807370610197061,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-069",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-070",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-071",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8011473148625401,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-072",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8186944330527656,
+            "relevant": true
+          },
+          {
+            "id": "N2",
+            "similarity": 0.806833924199114,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-073",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8549124849368939,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8276961691773075,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-074",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-075",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-076",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8228754304434266,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-077",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.819373025169529,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-078",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8387025191451799,
+            "relevant": true
+          },
+          {
+            "id": "N0",
+            "similarity": 0.8082730371533181,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-079",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 0.8635374063970062,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-080",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-081",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-082",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "N0",
+            "similarity": 0.8402387601380812,
+            "relevant": false
+          },
+          {
+            "id": "N4",
+            "similarity": 0.8402387601380812,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-083",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "N3",
+            "similarity": 0.8537506118845305,
+            "relevant": false
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8290127620213106,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-084",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 0.8622831792289674,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8049884580188099,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-085",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-086",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-087",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 0.9999999999999997,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-088",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "N2",
+            "similarity": 0.811850112136848,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-089",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-090",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-091",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000004,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.803082023135663,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-092",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8194923526581457,
+            "relevant": true
+          },
+          {
+            "id": "N2",
+            "similarity": 0.8115578284621655,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-093",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8639394317268944,
+            "relevant": true
+          },
+          {
+            "id": "P2",
+            "similarity": 0.8393826593137923,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-094",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 0.804243289707113,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-095",
+        "chosen": []
+      },
+      {
+        "id": "HOLDOUT-096",
+        "chosen": [
+          {
+            "id": "P2",
+            "similarity": 1.0000000000000002,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8263472489622445,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-097",
+        "chosen": [
+          {
+            "id": "P1",
+            "similarity": 1.0,
+            "relevant": true
+          },
+          {
+            "id": "P0",
+            "similarity": 0.8228232445425321,
+            "relevant": true
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-098",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 1.0,
+            "relevant": true
+          },
+          {
+            "id": "P1",
+            "similarity": 0.8429760367967951,
+            "relevant": true
+          },
+          {
+            "id": "N0",
+            "similarity": 0.8132567255304483,
+            "relevant": false
+          }
+        ]
+      },
+      {
+        "id": "HOLDOUT-099",
+        "chosen": [
+          {
+            "id": "P0",
+            "similarity": 0.8587495727427408,
+            "relevant": true
+          }
+        ]
+      }
+    ]
+  }
+}

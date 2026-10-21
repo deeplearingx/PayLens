@@ -1,0 +1,353 @@
+{
+  "method": "CLS + L2; query prefix; top-5 each; equal RRF k=60; top-3",
+  "modelSha256": "de07885703c40d7aa8caca2997594906169ffae212e5a5409c6da5e6d48b0518",
+  "knowledgeIds": [
+    "amount-mismatch",
+    "channel-rejection",
+    "db-artemis-delay",
+    "duplicate-callbacks",
+    "late-success-after-close",
+    "lost-callback",
+    "merchant-app-config",
+    "query-timeout",
+    "refund-pending-failed",
+    "terminal-conflict"
+  ],
+  "selectedThreshold": 0.54,
+  "thresholdCalibrated": true,
+  "sets": {
+    "dev": {
+      "keyword": {
+        "metrics": {
+          "recallAt3": 0.06666666666666667,
+          "mrr": 0.06666666666666667,
+          "noMatchFalsePositiveRate": 0.0
+        },
+        "rankings": {
+          "AI-001": [],
+          "AI-002": [],
+          "AI-003": [],
+          "AI-004": [],
+          "AI-005": [],
+          "AI-016": [
+            "query-timeout"
+          ],
+          "AI-017": [],
+          "AI-018": [],
+          "AI-019": [],
+          "AI-020": [],
+          "AI-031": [],
+          "AI-032": [],
+          "AI-033": [],
+          "AI-034": [],
+          "AI-035": [],
+          "AI-046": [],
+          "AI-047": [],
+          "AI-048": [],
+          "AI-049": [],
+          "AI-050": []
+        }
+      },
+      "hybrid": {
+        "metrics": {
+          "recallAt3": 1.0,
+          "mrr": 0.8333333333333334,
+          "noMatchFalsePositiveRate": 0.0
+        },
+        "rankings": {
+          "AI-001": [
+            "lost-callback",
+            "terminal-conflict",
+            "late-success-after-close"
+          ],
+          "AI-002": [
+            "lost-callback",
+            "late-success-after-close",
+            "query-timeout"
+          ],
+          "AI-003": [
+            "lost-callback",
+            "late-success-after-close",
+            "duplicate-callbacks"
+          ],
+          "AI-004": [
+            "late-success-after-close",
+            "lost-callback",
+            "query-timeout"
+          ],
+          "AI-005": [
+            "lost-callback",
+            "terminal-conflict",
+            "late-success-after-close"
+          ],
+          "AI-016": [
+            "query-timeout",
+            "terminal-conflict",
+            "late-success-after-close"
+          ],
+          "AI-017": [
+            "query-timeout",
+            "channel-rejection",
+            "lost-callback"
+          ],
+          "AI-018": [
+            "query-timeout"
+          ],
+          "AI-019": [
+            "channel-rejection",
+            "query-timeout",
+            "late-success-after-close"
+          ],
+          "AI-020": [
+            "query-timeout",
+            "late-success-after-close",
+            "terminal-conflict"
+          ],
+          "AI-031": [
+            "late-success-after-close",
+            "terminal-conflict",
+            "lost-callback"
+          ],
+          "AI-032": [
+            "terminal-conflict",
+            "late-success-after-close",
+            "lost-callback"
+          ],
+          "AI-033": [
+            "lost-callback",
+            "terminal-conflict"
+          ],
+          "AI-034": [
+            "terminal-conflict"
+          ],
+          "AI-035": [
+            "late-success-after-close",
+            "terminal-conflict",
+            "lost-callback"
+          ],
+          "AI-046": [],
+          "AI-047": [],
+          "AI-048": [],
+          "AI-049": [],
+          "AI-050": []
+        }
+      }
+    },
+    "holdout": {
+      "keyword": {
+        "metrics": {
+          "recallAt3": 0.0,
+          "mrr": 0.0,
+          "noMatchFalsePositiveRate": 0.0
+        },
+        "rankings": {
+          "AI-006": [],
+          "AI-007": [],
+          "AI-008": [],
+          "AI-009": [],
+          "AI-010": [],
+          "AI-011": [],
+          "AI-012": [],
+          "AI-013": [],
+          "AI-014": [],
+          "AI-015": [],
+          "AI-021": [],
+          "AI-022": [],
+          "AI-023": [],
+          "AI-024": [],
+          "AI-025": [],
+          "AI-026": [],
+          "AI-027": [],
+          "AI-028": [],
+          "AI-029": [],
+          "AI-030": [],
+          "AI-036": [],
+          "AI-037": [],
+          "AI-038": [],
+          "AI-039": [],
+          "AI-040": [],
+          "AI-041": [],
+          "AI-042": [
+            "late-success-after-close"
+          ],
+          "AI-043": [],
+          "AI-044": [],
+          "AI-045": [],
+          "AI-051": [],
+          "AI-052": [],
+          "AI-053": [],
+          "AI-054": [],
+          "AI-055": [],
+          "AI-056": [],
+          "AI-057": [],
+          "AI-058": [],
+          "AI-059": [],
+          "AI-060": []
+        }
+      },
+      "hybrid": {
+        "metrics": {
+          "recallAt3": 0.9,
+          "mrr": 0.6722222222222223,
+          "noMatchFalsePositiveRate": 0.0
+        },
+        "rankings": {
+          "AI-006": [
+            "lost-callback",
+            "terminal-conflict",
+            "late-success-after-close"
+          ],
+          "AI-007": [
+            "late-success-after-close",
+            "lost-callback",
+            "query-timeout"
+          ],
+          "AI-008": [
+            "terminal-conflict",
+            "late-success-after-close",
+            "lost-callback"
+          ],
+          "AI-009": [
+            "late-success-after-close",
+            "lost-callback",
+            "query-timeout"
+          ],
+          "AI-010": [
+            "lost-callback"
+          ],
+          "AI-011": [
+            "terminal-conflict",
+            "late-success-after-close",
+            "lost-callback"
+          ],
+          "AI-012": [
+            "lost-callback",
+            "terminal-conflict",
+            "late-success-after-close"
+          ],
+          "AI-013": [
+            "lost-callback",
+            "terminal-conflict",
+            "late-success-after-close"
+          ],
+          "AI-014": [
+            "terminal-conflict",
+            "lost-callback",
+            "late-success-after-close"
+          ],
+          "AI-015": [
+            "lost-callback",
+            "late-success-after-close",
+            "terminal-conflict"
+          ],
+          "AI-021": [
+            "query-timeout",
+            "terminal-conflict",
+            "late-success-after-close"
+          ],
+          "AI-022": [
+            "lost-callback",
+            "terminal-conflict",
+            "query-timeout"
+          ],
+          "AI-023": [
+            "lost-callback",
+            "query-timeout"
+          ],
+          "AI-024": [
+            "query-timeout",
+            "channel-rejection",
+            "late-success-after-close"
+          ],
+          "AI-025": [
+            "query-timeout",
+            "terminal-conflict",
+            "late-success-after-close"
+          ],
+          "AI-026": [
+            "lost-callback",
+            "terminal-conflict",
+            "query-timeout"
+          ],
+          "AI-027": [
+            "query-timeout",
+            "late-success-after-close",
+            "terminal-conflict"
+          ],
+          "AI-028": [
+            "query-timeout",
+            "lost-callback",
+            "terminal-conflict"
+          ],
+          "AI-029": [
+            "query-timeout",
+            "late-success-after-close"
+          ],
+          "AI-030": [
+            "query-timeout",
+            "terminal-conflict",
+            "late-success-after-close"
+          ],
+          "AI-036": [
+            "terminal-conflict",
+            "late-success-after-close",
+            "lost-callback"
+          ],
+          "AI-037": [
+            "lost-callback",
+            "late-success-after-close",
+            "terminal-conflict"
+          ],
+          "AI-038": [
+            "late-success-after-close",
+            "lost-callback"
+          ],
+          "AI-039": [
+            "terminal-conflict",
+            "late-success-after-close",
+            "lost-callback"
+          ],
+          "AI-040": [
+            "late-success-after-close",
+            "terminal-conflict",
+            "lost-callback"
+          ],
+          "AI-041": [
+            "terminal-conflict",
+            "late-success-after-close",
+            "lost-callback"
+          ],
+          "AI-042": [
+            "late-success-after-close",
+            "lost-callback",
+            "query-timeout"
+          ],
+          "AI-043": [
+            "lost-callback",
+            "channel-rejection",
+            "late-success-after-close"
+          ],
+          "AI-044": [
+            "late-success-after-close",
+            "terminal-conflict"
+          ],
+          "AI-045": [
+            "late-success-after-close",
+            "terminal-conflict",
+            "lost-callback"
+          ],
+          "AI-051": [],
+          "AI-052": [],
+          "AI-053": [],
+          "AI-054": [],
+          "AI-055": [],
+          "AI-056": [],
+          "AI-057": [],
+          "AI-058": [],
+          "AI-059": [],
+          "AI-060": []
+        }
+      }
+    }
+  }
+}

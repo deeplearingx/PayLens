@@ -75,7 +75,8 @@ public class PayLensIncidentObservationReader {
                     rs.getString("mch_no"), rs.getString("trade_type"), "QUERY",
                     rs.getString("channel"), reason, blankToNull(code),
                     instant(rs.getObject("create_time", OffsetDateTime.class)),
-                    "支付查单出现异常：类别=" + reason + "，返回状态=" + safe(rs.getString("out_trade_status")));
+                    "支付查单出现异常：类别=" + reason + "，返回状态=" + safe(rs.getString("out_trade_status"))
+                            + "，错误描述=" + safeDescription(rawMessage));
         }, mchNo, offset(from), offset(to), READ_LIMIT);
     }
 
@@ -95,7 +96,8 @@ public class PayLensIncidentObservationReader {
                     rs.getString("mch_no"), rs.getString("trade_type"), "CALLBACK",
                     rs.getString("channel"), "CALLBACK_" + safe(status).toUpperCase(Locale.ROOT), category,
                     instant(rs.getObject("create_time", OffsetDateTime.class)),
-                    "支付回调处理失败：状态=" + safe(status) + "，错误类别=" + category);
+                    "支付回调处理失败：状态=" + safe(status) + "，错误类别=" + category
+                            + "，错误描述=" + safeDescription(rs.getString("error_msg")));
         }, mchNo, offset(from), offset(to), READ_LIMIT);
     }
 
@@ -114,6 +116,11 @@ public class PayLensIncidentObservationReader {
         if (value == null || value.isBlank()) return "未知";
         String sanitized = SensitiveTextSanitizer.sanitize(value);
         return sanitized.substring(0, Math.min(sanitized.length(), 160));
+    }
+    private String safeDescription(String value) {
+        if (value == null || value.isBlank()) return "未提供";
+        String sanitized = SensitiveTextSanitizer.sanitize(value).replaceAll("[\\r\\n\\t]+", " ");
+        return sanitized.substring(0, Math.min(sanitized.length(), 320));
     }
 
     private String blankToNull(String value) { return value == null || value.isBlank() ? null : safe(value); }

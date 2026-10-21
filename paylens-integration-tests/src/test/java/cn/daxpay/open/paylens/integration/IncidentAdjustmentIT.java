@@ -3,6 +3,7 @@ package cn.daxpay.open.paylens.integration;
 import cn.daxpay.open.paylens.demo.IncidentVersionConflictException;
 import cn.daxpay.open.paylens.demo.PayLensIncidentAdjustmentService;
 import cn.daxpay.open.paylens.analysis.IncidentAnalysisRepository;
+import cn.daxpay.open.paylens.analysis.DiagnosticModelResponse;
 import cn.daxpay.open.paylens.incidents.domain.Observation;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -65,6 +66,8 @@ class IncidentAdjustmentIT {
         ResourceDatabasePopulator schema = new ResourceDatabasePopulator(
                 new ClassPathResource("db/migration/V003__incident_workbench.sql"));
         schema.execute(source);
+        new ResourceDatabasePopulator(new ClassPathResource("db/migration/V004__incident_ai_improvements.sql"))
+                .execute(source);
         jdbc = new JdbcTemplate(source);
         jdbc.execute("""
                 CREATE TABLE IF NOT EXISTS pay_trade (
@@ -169,6 +172,35 @@ class IncidentAdjustmentIT {
         assertEquals("A-ANALYSIS", analysisRepository.claimNext().orElseThrow());
         assertEquals("RUNNING", jdbc.queryForObject("SELECT status FROM paylens_incident_analysis WHERE id='A-ANALYSIS'", String.class));
         assertEquals("mock-event-model", jdbc.queryForObject("SELECT model_id FROM paylens_incident_analysis_attempt WHERE analysis_id='A-ANALYSIS'", String.class));
+    }
+
+    @Test
+    void modelCallsPersistFailedResponseTokensAndAggregateAcrossRepair() throws Exception {
+        createBatchAndIncident("I-CALLS", "B-CALLS", 1, List.of(observation("O-CALLS", "T-CALLS")));
+        String versions = """
+                {"snapshotAt":"2026-09-26T10:00:00Z","snapshotHash":"snapshot-hash",
+                 "modelId":"mock-event-model","modelConfigurationId":"config-hash",
+                 "promptVersion":"prompt-hash","outputSchemaVersion":"schema-v2",
+                 "knowledgeVersion":"knowledge-v1","retrievalMode":"KEYWORD","legacy":false}
+                """;
+        jdbc.update("""
+                INSERT INTO paylens_incident_analysis(id,mch_no,incident_id,incident_version,reuse_key,evidence_hash,
+                  evidence_snapshot,execution_versions,retrieved_knowledge,status)
+                VALUES ('A-CALLS',?,?,1,'reuse-calls','snapshot-hash',?::jsonb,?::jsonb,'[]'::jsonb,'QUEUED')
+                """, DEMO_MERCHANT, "I-CALLS", "{\"statistics\":{},\"evidence\":[],\"omittedEvidenceCount\":0}", versions);
+        assertEquals("A-CALLS", analysisRepository.claimNext().orElseThrow());
+        long initial = analysisRepository.startModelCall("A-CALLS", "INITIAL", "mock-event-model");
+        analysisRepository.recordModelResponse(initial, new DiagnosticModelResponse("{}", 40L, 20L, "mock-event-model"));
+        assertEquals(40L, jdbc.queryForObject("SELECT prompt_tokens FROM paylens_incident_model_call WHERE id=?", Long.class, initial));
+        analysisRepository.finishModelCall(initial, "FAILED", "INVALID_STRUCTURE", 12,
+                new DiagnosticModelResponse("{}", 40L, 20L, "mock-event-model"));
+        long repair = analysisRepository.startModelCall("A-CALLS", "FORMAT_REPAIR", "mock-event-model");
+        analysisRepository.finishModelCall(repair, "SUCCEEDED", null, 14,
+                new DiagnosticModelResponse("{}", 25L, 10L, "mock-event-model"));
+        analysisRepository.markSucceeded("A-CALLS", "{}", 26, null);
+        assertEquals(2, jdbc.queryForObject("SELECT count(*) FROM paylens_incident_model_call WHERE analysis_id='A-CALLS'", Integer.class));
+        assertEquals(65L, jdbc.queryForObject("SELECT prompt_tokens FROM paylens_incident_analysis_attempt WHERE analysis_id='A-CALLS'", Long.class));
+        assertEquals(30L, jdbc.queryForObject("SELECT completion_tokens FROM paylens_incident_analysis_attempt WHERE analysis_id='A-CALLS'", Long.class));
     }
 
     private void createBatchAndIncident(String incidentId, String batchId, int groupNo,

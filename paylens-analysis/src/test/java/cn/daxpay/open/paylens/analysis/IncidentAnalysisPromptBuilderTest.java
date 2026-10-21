@@ -16,6 +16,7 @@ class IncidentAnalysisPromptBuilderTest {
         String prompt = IncidentAnalysisPromptBuilder.build(input, List.of(), JsonMapper.builder().build());
 
         assertTrue(prompt.contains("verification 必须是一个字符串，不能写成数组"));
-        assertTrue(IncidentAnalysisPromptBuilder.PROMPT_VERSION.endsWith("v2"));
+        assertTrue(IncidentAnalysisPromptBuilder.PROMPT_VERSION.endsWith("v3"));
+        assertTrue(prompt.contains("outputSchema"));
     }
 }

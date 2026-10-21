@@ -35,6 +35,7 @@ public final class MockDiagnosticModel implements DiagnosticModel {
             missing.add("当前没有可核验的交易证据，无法判断具体原因。");
         }
         root.putArray("knowledgeCitations");
+        root.putNull("knowledgeOmissionReason");
         if (knowledge.isArray() && !knowledge.isEmpty()) {
             root.put("knowledgeOmissionReason", "假模型不判断检索知识与本案的相关性。");
         }
@@ -61,6 +62,7 @@ public final class MockDiagnosticModel implements DiagnosticModel {
         if (omitted > 0) missing.add("本次输入省略了 " + omitted + " 条成员证据，请按事件详情抽样核对。");
         if (evidence.isEmpty()) missing.add("当前没有可引用的成员证据。");
         root.putArray("knowledgeCitations");
+        root.putNull("knowledgeOmissionReason");
         if (knowledge.isArray() && !knowledge.isEmpty()) {
             root.put("knowledgeOmissionReason", "假模型不判断检索知识与当前事件是否相关。");
         }

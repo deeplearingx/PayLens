@@ -84,6 +84,33 @@ public class IncidentAnalysisRepository {
                 """, id, id);
     }
 
+    public long startModelCall(String id, String kind, String modelId) {
+        Long callId = jdbc.queryForObject("""
+                INSERT INTO paylens_incident_model_call(analysis_id,attempt_no,call_kind,status,started_at,model_id)
+                SELECT ?,attempt_no,?,'RUNNING',now(),? FROM paylens_incident_analysis_attempt
+                 WHERE analysis_id=? AND status='RUNNING' ORDER BY attempt_no DESC LIMIT 1 RETURNING id
+                """, Long.class, id, kind, modelId, id);
+        if (callId == null) throw new IllegalStateException("事件分析调用记录无法写入");
+        return callId;
+    }
+
+    public void finishModelCall(long callId, String status, String failureCode, long durationMs,
+                                DiagnosticModelResponse response) {
+        jdbc.update("""
+                UPDATE paylens_incident_model_call SET status=?,completed_at=now(),duration_ms=?,failure_code=?,
+                       model_id=COALESCE(?,model_id),prompt_tokens=?,completion_tokens=? WHERE id=? AND status='RUNNING'
+                """, status, durationMs, failureCode, response == null ? null : response.modelId(),
+                response == null ? null : response.promptTokens(), response == null ? null : response.completionTokens(), callId);
+    }
+
+    /** Persist provider usage before parsing or business validation can reject the response. */
+    public void recordModelResponse(long callId, DiagnosticModelResponse response) {
+        jdbc.update("""
+                UPDATE paylens_incident_model_call SET model_id=COALESCE(?,model_id),prompt_tokens=?,completion_tokens=?
+                 WHERE id=? AND status='RUNNING'
+                """, response.modelId(), response.promptTokens(), response.completionTokens(), callId);
+    }
+
     public Optional<IncidentAnalysisInput> snapshot(String id) {
         return jdbc.query("SELECT evidence_snapshot FROM paylens_incident_analysis WHERE id=?", (rs, row) -> {
             try { return mapper.readValue(rs.getString(1), IncidentAnalysisInput.class); }
@@ -100,13 +127,19 @@ public class IncidentAnalysisRepository {
                                 mapper.getTypeFactory().constructCollectionType(List.class, KnowledgeChunk.class));
                         return new IncidentAnalysisExecution(versions.snapshotAt(), versions.snapshotHash(), versions.modelId(),
                                 versions.modelConfigurationId(), versions.promptVersion(), versions.outputSchemaVersion(),
-                                versions.knowledgeVersion(), knowledge, versions.legacy());
+                                versions.knowledgeVersion(), versions.retrievalMode() == null ? "KEYWORD" : versions.retrievalMode(),
+                                knowledge, versions.legacy());
                     } catch (JacksonException exception) { throw new IllegalStateException("事件分析版本无法读取", exception); }
                 }, id).stream().findFirst();
     }
 
     public List<KnowledgeChunk> retrievedKnowledge(String id) {
         return execution(id).map(IncidentAnalysisExecution::retrievedKnowledge).orElse(List.of());
+    }
+
+    public void storeRetrievedKnowledge(String id, String knowledgeJson) {
+        jdbc.update("UPDATE paylens_incident_analysis SET retrieved_knowledge=?::jsonb,updated_at=now() WHERE id=? AND status='RUNNING'",
+                knowledgeJson, id);
     }
 
     public int markSucceeded(String id, String result, long duration, DiagnosticModelResponse response) {
@@ -126,10 +159,10 @@ public class IncidentAnalysisRepository {
     private void finishAttempt(String id, String state, String failure, long duration, DiagnosticModelResponse response) {
         jdbc.update("""
                 UPDATE paylens_incident_analysis_attempt SET status=?,completed_at=now(),duration_ms=?,failure_code=?,
-                       prompt_tokens=?,completion_tokens=?
+                       prompt_tokens=(SELECT sum(prompt_tokens) FROM paylens_incident_model_call WHERE analysis_id=? AND attempt_no=paylens_incident_analysis_attempt.attempt_no),
+                       completion_tokens=(SELECT sum(completion_tokens) FROM paylens_incident_model_call WHERE analysis_id=? AND attempt_no=paylens_incident_analysis_attempt.attempt_no)
                  WHERE id=(SELECT id FROM paylens_incident_analysis_attempt WHERE analysis_id=? AND status='RUNNING' ORDER BY attempt_no DESC LIMIT 1)
-                """, state, duration, failure, response == null ? null : response.promptTokens(),
-                response == null ? null : response.completionTokens(), id);
+                """, state, duration, failure, id, id, id);
     }
 
     public int retry(String mchNo, String id) {
@@ -148,6 +181,7 @@ public class IncidentAnalysisRepository {
     public int markInterruptedRunningFailed() {
         int changed = jdbc.update("UPDATE paylens_incident_analysis SET status='FAILED',failure_code='PROCESS_RESTARTED',updated_at=now() WHERE status='RUNNING'");
         jdbc.update("UPDATE paylens_incident_analysis_attempt SET status='FAILED',failure_code='PROCESS_RESTARTED',completed_at=now() WHERE status='RUNNING'");
+        jdbc.update("UPDATE paylens_incident_model_call SET status='FAILED',failure_code='PROCESS_RESTARTED',completed_at=now() WHERE status='RUNNING'");
         return changed;
     }
 
@@ -179,7 +213,7 @@ public class IncidentAnalysisRepository {
     }
 
     private IncidentAnalysisTask map(String id) {
-        AnalysisRow row = jdbc.query("SELECT incident_id,incident_version,status,result_json,failure_code,duration_ms FROM paylens_incident_analysis WHERE id=?",
+        AnalysisRow row = jdbc.query("SELECT incident_id,incident_version,status,result_json,failure_code,duration_ms,created_at FROM paylens_incident_analysis WHERE id=?",
                 (rs, index) -> {
                     IncidentAnalysisResult result = null;
                     try {
@@ -191,7 +225,7 @@ public class IncidentAnalysisRepository {
                     }
                     return new AnalysisRow(rs.getString("incident_id"), rs.getInt("incident_version"),
                             rs.getString("status"), result, rs.getString("failure_code"),
-                            rs.getObject("duration_ms", Long.class));
+                            rs.getObject("duration_ms", Long.class), rs.getObject("created_at", OffsetDateTime.class));
                 }, id).stream().findFirst().orElseThrow(() -> new IllegalArgumentException("事件分析任务不存在"));
         IncidentAnalysisExecution execution = execution(id).orElse(null);
         List<IncidentAnalysisAttempt> attempts = jdbc.query("""
@@ -202,14 +236,24 @@ public class IncidentAnalysisRepository {
                 attempt.getObject("completed_at", OffsetDateTime.class), attempt.getObject("duration_ms", Long.class),
                 attempt.getString("failure_code"), attempt.getString("model_id"),
                 attempt.getObject("prompt_tokens", Long.class), attempt.getObject("completion_tokens", Long.class)), id);
+        List<IncidentModelCall> modelCalls = jdbc.query("""
+                SELECT attempt_no,call_kind,status,started_at,completed_at,duration_ms,failure_code,model_id,
+                       prompt_tokens,completion_tokens FROM paylens_incident_model_call WHERE analysis_id=? ORDER BY attempt_no,id
+                """, (call, index) -> new IncidentModelCall(call.getInt("attempt_no"), call.getString("call_kind"),
+                call.getString("status"), call.getObject("started_at", OffsetDateTime.class),
+                call.getObject("completed_at", OffsetDateTime.class), call.getObject("duration_ms", Long.class),
+                call.getString("failure_code"), call.getString("model_id"),
+                call.getObject("prompt_tokens", Long.class), call.getObject("completion_tokens", Long.class)), id);
+        Long queueDurationMs = attempts.isEmpty() || row.createdAt() == null ? null : Math.max(0,
+                java.time.Duration.between(row.createdAt(), attempts.getFirst().startedAt()).toMillis());
         return new IncidentAnalysisTask(id, row.incidentId(), row.incidentVersion(), row.status(), row.result(),
-                row.failureCode(), row.durationMs(), false, execution, attempts);
+                row.failureCode(), row.durationMs(), false, execution, attempts, modelCalls, queueDurationMs);
     }
 
     private record AnalysisRow(String incidentId, int incidentVersion, String status, IncidentAnalysisResult result,
-                               String failureCode, Long durationMs) {}
+                               String failureCode, Long durationMs, OffsetDateTime createdAt) {}
 
     private record VersionSnapshot(OffsetDateTime snapshotAt, String snapshotHash, String modelId,
                                    String modelConfigurationId, String promptVersion, String outputSchemaVersion,
-                                   String knowledgeVersion, boolean legacy) {}
+                                   String knowledgeVersion, String retrievalMode, boolean legacy) {}
 }

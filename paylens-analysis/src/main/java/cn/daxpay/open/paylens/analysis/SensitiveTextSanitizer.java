@@ -12,12 +12,13 @@ public final class SensitiveTextSanitizer {
     private static final Pattern AUTHORIZATION = Pattern.compile("(?i)(\\bauthorization\\s*[:=]\\s*)(?:bearer|basic)\\s+[^\\s,;]+");
     private static final Pattern BEARER = Pattern.compile("(?i)\\bbearer\\s+[A-Za-z0-9._~+/=-]{8,}");
     private static final Pattern API_TOKEN = Pattern.compile("(?i)\\b(?:sk|pk)[-_](?:live|test)[-_][A-Za-z0-9_-]{6,}\\b|\\bsk-[A-Za-z0-9_-]{16,}\\b|\\bgh[pousr]_[A-Za-z0-9]{20,}\\b");
+    private static final Pattern ORDER_REFERENCE = Pattern.compile("(?i)\\b(trade[_-]?no|out[_-]?trade[_-]?no|merchant[_-]?order[_-]?no|request[_-]?id|trace[_-]?id|订单号|交易号|请求号|关联号)(\\s*[:=：]\\s*)[^\\s,，;；]+", Pattern.UNICODE_CHARACTER_CLASS);
 
     private SensitiveTextSanitizer() {}
 
     public static String sanitize(String value) {
         if (value == null) return "";
-        return API_TOKEN.matcher(
+        return ORDER_REFERENCE.matcher(API_TOKEN.matcher(
                 BEARER.matcher(
                         AUTHORIZATION.matcher(
                                 SECRET_ASSIGNMENT.matcher(
@@ -25,6 +26,6 @@ public final class SensitiveTextSanitizer {
                                 ).replaceAll("$1$2[密钥已脱敏]")
                         ).replaceAll("$1[认证信息已脱敏]")
                 ).replaceAll("[认证信息已脱敏]")
-        ).replaceAll("[密钥已脱敏]");
+        ).replaceAll("[密钥已脱敏]")).replaceAll("$1$2[编号已脱敏]");
     }
 }

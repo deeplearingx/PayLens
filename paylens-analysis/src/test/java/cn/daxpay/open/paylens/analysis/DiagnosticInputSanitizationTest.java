@@ -42,6 +42,18 @@ class DiagnosticInputSanitizationTest {
     }
 
     @Test
+    void masksPaymentAndRequestReferencesWithoutRemovingDiagnosticStatus() {
+        String clean = SensitiveTextSanitizer.sanitize(
+                "订单号:ORD20261003001 request_id=req-998 trace_id=trace-42 HTTP 504 SocketTimeoutException payment=unknown");
+        assertFalse(clean.contains("ORD20261003001"));
+        assertFalse(clean.contains("req-998"));
+        assertFalse(clean.contains("trace-42"));
+        assertTrue(clean.contains("HTTP 504"));
+        assertTrue(clean.contains("SocketTimeoutException"));
+        assertTrue(clean.contains("payment=unknown"));
+    }
+
+    @Test
     void capsEvidenceCountAndIndividualSummaryLength() {
         List<DiagnosticEvidence> evidence = new ArrayList<>();
         for (int index = 0; index < 31; index++) {

@@ -29,6 +29,8 @@ paylens:
     duplicate-callback-count: ${PAYLENS_DEMO_DUPLICATE_CALLBACK_COUNT:2}
   analysis:
     enabled: ${PAYLENS_ANALYSIS_ENABLED:true}
+    hybrid-enabled: ${PAYLENS_HYBRID_RETRIEVAL_ENABLED:false}
+    hybrid-threshold: ${PAYLENS_HYBRID_RETRIEVAL_THRESHOLD:0.54}
   embedding:
     enabled: ${PAYLENS_EMBEDDING_ENABLED:true}
     model-directory: ${PAYLENS_EMBEDDING_MODEL_DIR:models/bge-small-zh-v1.5}
@@ -37,6 +39,9 @@ paylens:
   incidents:
     enabled: ${PAYLENS_INCIDENTS_ENABLED:true}
     semantic-auto-merge-enabled: ${PAYLENS_INCIDENT_SEMANTIC_AUTO_MERGE:false}
+    suggestions-enabled: ${PAYLENS_INCIDENT_SUGGESTIONS_ENABLED:false}
+    suggestion-calibration-id: ${PAYLENS_INCIDENT_SUGGESTION_CALIBRATION_ID:}
+    suggestion-threshold: ${PAYLENS_INCIDENT_SUGGESTION_THRESHOLD:0.82}
     calibration-id: ${PAYLENS_INCIDENT_CALIBRATION_ID:}
     grouping-threshold: ${PAYLENS_INCIDENT_GROUPING_THRESHOLD:0.90}
     grouping-window-minutes: 10

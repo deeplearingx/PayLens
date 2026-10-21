@@ -78,6 +78,49 @@ class IncidentAnalysisContractTest {
         assertEquals("INVALID_STRUCTURE", error.failureCode());
     }
 
+    @Test
+    void missingArraysAndNullMembersCannotDisappearDuringRecordConstruction() {
+        IncidentAnalysisInput input = new IncidentAnalysisInput(Map.of(), List.of(evidence("E-real", "QUERY")), 0);
+        String missing = """
+                {"commonPhenomenon":"现象","facts":[],"differences":[],"possibleExplanations":[],
+                 "checkSteps":[],"knowledgeCitations":[],"knowledgeOmissionReason":null}
+                """;
+        String nullMember = """
+                {"commonPhenomenon":"现象","facts":[null],"differences":[],"possibleExplanations":[],
+                 "checkSteps":[],"missingInformation":[],"knowledgeCitations":[],"knowledgeOmissionReason":null}
+                """;
+        assertEquals("INVALID_STRUCTURE", assertThrows(DiagnosticValidationException.class,
+                () -> validator.validate(missing, input, Set.of())).failureCode());
+        assertEquals("INVALID_STRUCTURE", assertThrows(DiagnosticValidationException.class,
+                () -> validator.validate(nullMember, input, Set.of())).failureCode());
+    }
+
+    @Test
+    void rejectsOutOfScopeKnowledgeAndKeepsRepairContextBounded() throws Exception {
+        IncidentAnalysisInput input = new IncidentAnalysisInput(Map.of(), List.of(evidence("E-real", "QUERY")), 0);
+        String outOfScope = """
+                {"commonPhenomenon":"现象","facts":[],"differences":[],"possibleExplanations":[],
+                 "checkSteps":[],"missingInformation":[],"knowledgeCitations":["K-forged"],
+                 "knowledgeOmissionReason":null}
+                """;
+        assertEquals("INVALID_KNOWLEDGE_CITATION", assertThrows(DiagnosticValidationException.class,
+                () -> validator.validate(outOfScope, input, Set.of("K-real"))).failureCode());
+        String repair = IncidentFormatRepair.prompt("原始证据 E-real", "{invalid", "INVALID_JSON", mapper);
+        assertEquals("INVALID_JSON", mapper.readTree(repair).get("validationError").asText());
+        assertEquals("REPAIR_CONTEXT_TOO_LARGE", assertThrows(DiagnosticValidationException.class,
+                () -> IncidentFormatRepair.prompt("x".repeat(16 * 1024), "{}", "INVALID_JSON", mapper)).failureCode());
+    }
+
+    @Test
+    void overlongContentIsNotClassifiedAsRepairableStructureError() {
+        IncidentAnalysisInput input = new IncidentAnalysisInput(Map.of(), List.of(), 0);
+        String overlong = "{\"commonPhenomenon\":\"" + "x".repeat(1201) + "\",\"facts\":[],\"differences\":[],"
+                + "\"possibleExplanations\":[],\"checkSteps\":[],\"missingInformation\":[],"
+                + "\"knowledgeCitations\":[],\"knowledgeOmissionReason\":null}";
+        assertEquals("INVALID_LIMIT", assertThrows(DiagnosticValidationException.class,
+                () -> validator.validate(overlong, input, Set.of())).failureCode());
+    }
+
     private DiagnosticEvidence evidence(String id, String type) {
         return new DiagnosticEvidence(id, type, OffsetDateTime.of(2026, 9, 26, 10, 0, 0, 0, ZoneOffset.UTC),
                 "脱敏后的支付观察记录");

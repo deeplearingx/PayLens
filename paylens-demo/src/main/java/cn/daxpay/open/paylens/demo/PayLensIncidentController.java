@@ -45,6 +45,7 @@ import java.util.Map;
 public class PayLensIncidentController {
     private final PayLensIncidentBatchService batches;
     private final PayLensIncidentAdjustmentService adjustments;
+    private final PayLensMergeSuggestionService suggestions;
     private final ObjectProvider<IncidentAnalysisService> analysisProvider;
     @Value("${paylens.demo.mch-no:}")
     private String demoMchNo;
@@ -80,6 +81,12 @@ public class PayLensIncidentController {
     @PermCode(code = PermCodes.Action.VIEW)
     public Result<PayLensIncidentBatchService.IncidentDetail> incident(@PathVariable String incidentId) {
         return Res.ok(batches.detail(incidentId));
+    }
+
+    @GetMapping("/incidents/{incidentId}/merge-suggestions")
+    @PermCode(code = PermCodes.Action.VIEW)
+    public Result<PayLensMergeSuggestionService.Suggestions> mergeSuggestions(@PathVariable String incidentId) {
+        return Res.ok(suggestions.forIncident(incidentId));
     }
 
     @PostMapping("/incidents/{incidentId}/split")

@@ -1,0 +1,365 @@
+{
+  "note": "AI-assisted scoring is separate and is not independent human verification",
+  "maximumCalls": 120,
+  "consumedCalls": 80,
+  "budgetExhausted": false,
+  "conditions": {
+    "KEYWORD": {
+      "initialIssued": 40,
+      "initialValid": 40,
+      "initialValidRate": 1.0,
+      "repairTriggered": 0,
+      "repairIssued": 0,
+      "repairValid": 0,
+      "afterRepairValid": 40,
+      "afterRepairValidRate": 1.0,
+      "promptTokensAllCalls": 28846,
+      "completionTokensAllCalls": 142090,
+      "initialDurationP50Ms": 34204,
+      "initialDurationP95Ms": 43732,
+      "repairDurationP50Ms": null,
+      "successfulReferenceScopeValid": true
+    },
+    "HYBRID": {
+      "initialIssued": 40,
+      "initialValid": 40,
+      "initialValidRate": 1.0,
+      "repairTriggered": 0,
+      "repairIssued": 0,
+      "repairValid": 0,
+      "afterRepairValid": 40,
+      "afterRepairValidRate": 1.0,
+      "promptTokensAllCalls": 44286,
+      "completionTokensAllCalls": 150430,
+      "initialDurationP50Ms": 35476,
+      "initialDurationP95Ms": 43778,
+      "repairDurationP50Ms": null,
+      "successfulReferenceScopeValid": true
+    }
+  },
+  "failures": {},
+  "pairedStructuralResults": [
+    {
+      "caseId": "AI-006",
+      "category": "routine",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-007",
+      "category": "routine",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-008",
+      "category": "routine",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-009",
+      "category": "routine",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-010",
+      "category": "routine",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-011",
+      "category": "routine",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-012",
+      "category": "routine",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-013",
+      "category": "routine",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-014",
+      "category": "routine",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-015",
+      "category": "routine",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-021",
+      "category": "insufficient",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-022",
+      "category": "insufficient",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-023",
+      "category": "insufficient",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-024",
+      "category": "insufficient",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-025",
+      "category": "insufficient",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-026",
+      "category": "insufficient",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-027",
+      "category": "insufficient",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-028",
+      "category": "insufficient",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-029",
+      "category": "insufficient",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-030",
+      "category": "insufficient",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-036",
+      "category": "conflict",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-037",
+      "category": "conflict",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-038",
+      "category": "conflict",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-039",
+      "category": "conflict",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-040",
+      "category": "conflict",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-041",
+      "category": "conflict",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-042",
+      "category": "conflict",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-043",
+      "category": "conflict",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-044",
+      "category": "conflict",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-045",
+      "category": "conflict",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-051",
+      "category": "no_match",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-052",
+      "category": "no_match",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-053",
+      "category": "no_match",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-054",
+      "category": "no_match",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-055",
+      "category": "no_match",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-056",
+      "category": "no_match",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-057",
+      "category": "no_match",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-058",
+      "category": "no_match",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-059",
+      "category": "no_match",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    },
+    {
+      "caseId": "AI-060",
+      "category": "no_match",
+      "keywordFirstValid": true,
+      "hybridFirstValid": true,
+      "keywordFailure": null,
+      "hybridFailure": null
+    }
+  ],
+  "queueTimeMs": "NOT_APPLICABLE_STANDALONE_EVALUATION",
+  "reviewStatus": "PENDING_AI_ASSISTED_REVIEW"
+}

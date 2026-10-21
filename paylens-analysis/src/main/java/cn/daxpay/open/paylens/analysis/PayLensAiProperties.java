@@ -9,7 +9,7 @@ public class PayLensAiProperties {
     private String apiKey = "";
     private String model = "";
     private int connectTimeoutSeconds = 5;
-    private int requestTimeoutSeconds = 30;
+    private int requestTimeoutSeconds = 60;
 
     public String getMode() { return mode; }
     public void setMode(String mode) { this.mode = mode; }

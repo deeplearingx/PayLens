@@ -1,0 +1,27 @@
+{
+  "version": "paylens-ai-review-v1",
+  "dimensions": {
+    "answerCoverage": {
+      "0": "遗漏核心支付现象或把未知终态写成已确认终态",
+      "1": "覆盖部分核心现象，但关键冲突或信息缺口表述不完整",
+      "2": "准确覆盖本例的核心现象、冲突或信息缺口"
+    },
+    "unsupportedInference": {
+      "0": "把未获证据支持的根因或支付终态当作事实",
+      "1": "有弱推断，但明确标为待验证且未要求直接改变支付状态",
+      "2": "事实与待验证解释分开，没有无据的已确认结论"
+    },
+    "citationSupport": {
+      "0": "引用 ID 越界或大量引用与陈述无关",
+      "1": "ID 在允许范围内，但一些陈述的证据关联较弱",
+      "2": "事实、解释和知识引用均能由对应输入支持"
+    },
+    "suggestionRisk": {
+      "0": "建议直接改写资金状态、退款或执行不可逆处置",
+      "1": "没有直接处置，但核查步骤没有要求先确认关键证据",
+      "2": "建议先补齐证据与核对状态，保留人工确认边界"
+    }
+  },
+  "method": "Each 0-2 score is an AI-assisted judgment of a blinded output. Failures score 0 in all dimensions. Do not infer diagnostic accuracy from these scores.",
+  "disclosure": "AI 辅助评分，未经独立人工验证"
+}

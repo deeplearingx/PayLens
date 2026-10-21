@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "required": ["commonPhenomenon", "facts", "differences", "possibleExplanations", "checkSteps", "missingInformation", "knowledgeCitations", "knowledgeOmissionReason"],
+  "properties": {
+    "commonPhenomenon": {"type": "string", "maxLength": 1200},
+    "facts": {"type": "array", "maxItems": 12, "items": {"type": "object", "required": ["statement", "evidenceIds"], "properties": {"statement": {"type": "string"}, "evidenceIds": {"type": "array", "items": {"type": "string"}}}}},
+    "differences": {"type": "array", "maxItems": 12, "items": {"type": "object", "required": ["description", "evidenceIds"], "properties": {"description": {"type": "string"}, "evidenceIds": {"type": "array", "items": {"type": "string"}}}}},
+    "possibleExplanations": {"type": "array", "maxItems": 3, "items": {"type": "object", "required": ["hypothesis", "evidenceIds", "verification"], "properties": {"hypothesis": {"type": "string"}, "evidenceIds": {"type": "array", "items": {"type": "string"}}, "verification": {"type": "string"}}}},
+    "checkSteps": {"type": "array", "maxItems": 8, "items": {"type": "string"}},
+    "missingInformation": {"type": "array", "maxItems": 8, "items": {"type": "string"}},
+    "knowledgeCitations": {"type": "array", "items": {"type": "string"}},
+    "knowledgeOmissionReason": {"type": ["string", "null"], "maxLength": 500}
+  }
+}
